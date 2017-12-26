@@ -1,0 +1,82 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="{% if app.request.attributes.get('_route') == 'homepage' %}active{% endif %} nav-item">
+                <a class="nav-link" href="{{ path('homepage') }}">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">IT Consulting</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Diagnosis</a>
+                    <a class="dropdown-item" href="#">Software assessment</a>
+                    <a class="dropdown-item" href="#">Business process tranformation</a>
+                    <a class="dropdown-item" href="#">Software architecture</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">Development</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Websites</a>
+                    <a class="dropdown-item" href="#">Templates</a>
+                    <a class="dropdown-item" href="#">MVP & Prototypes</a>
+                    <a class="dropdown-item" href="#">Team compilation</a>
+                    <a class="dropdown-item" href="#">SEO & SMM</a>
+                    <a class="dropdown-item" href="#">IT Support & Maintenance 24/7</a>
+                    <a class="dropdown-item" href="#">Dev/Ops</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">Project management</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">{{ 'agile_methodologies_implementation'|trans }}</a>
+                    <a class="dropdown-item" href="#">{{ 'business_analysis'|trans }}</a>
+                    <a class="dropdown-item" href="#">{{ 'software_requirements_specification_development'|trans }}</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">Device management</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Parental control</a>
+                    <a class="dropdown-item" href="#">Windows / Linux / Mac / Android / iOS recovery</a>
+                    <a class="dropdown-item" href="#">Software installation</a>
+                    <a class="dropdown-item" href="#">Restricted software setup</a>
+                    <a class="dropdown-item" href="#">VPN Lease</a>
+                    <a class="dropdown-item" href="#">Data recovery</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">Company bootstrap package</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Infrastructure setup</a>
+                    <a class="dropdown-item" href="#">IT Company infrastructure</a>
+                    <a class="dropdown-item" href="#">Offshore account management</a>
+                    <a class="dropdown-item" href="#">Peak resources</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">Coaching</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Web development from scratch</a>
+                    <a class="dropdown-item" href="#">Information technologies for kids</a>
+                    <a class="dropdown-item" href="#">Computer science</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+            </li>
+        </ul>
+    </div>
+
+</nav>

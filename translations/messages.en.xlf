@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="agile_methodologies_implementation">
+                <source>agile_methodologies_implementation</source>
+                <target>Agile methodologies implementation</target>
+            </trans-unit>
+            <trans-unit id="business_analysis">
+                <source>business_analysis</source>
+                <target>Business analysis</target>
+            </trans-unit>
+            <trans-unit id="software_requirements_specification_development">
+                <source>software_requirements_specification_development</source>
+                <target>Software requirements specification development</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

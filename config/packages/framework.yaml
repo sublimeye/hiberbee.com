@@ -1,0 +1,14 @@
+framework:
+    secret: '%env(APP_SECRET)%'
+    http_method_override: true
+    trusted_hosts: ~
+    session:
+        handler_id: ~
+    esi: { enabled: true }
+    fragments: { enabled: true }
+    php_errors:
+        log: true
+    assets: ~
+    cache:
+        prefix_seed: hiberbee
+    ide: ~

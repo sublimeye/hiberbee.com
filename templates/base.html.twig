@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+<head>
+    <meta charset="utf-8">
+    <title>Hiber Bee</title>
+    <meta name="description" content="IT Services & Consulting">
+    <meta name="author" content="Hiberbee">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block stylesheets %}
+        <link href="{{ asset('build/css/app.css') }}" rel="stylesheet"/>
+    {% endblock %}
+</head>
+<body>
+{% include 'header.html.twig' %}
+<main role="main" class="container">
+    {% block content %}{% endblock %}
+</main>
+{% block javascripts %}
+    <script src="{{ asset('build/manifest.js') }}"></script>
+    <script src="{{ asset('build/js/common.js') }}"></script>
+    <script src="{{ asset('build/js/app.js') }}"></script>
+{% endblock %}
+</body>
+</html>

@@ -1,4 +1,29 @@
-.idea
+/.idea
 *.iml
 .env
+/var/*
+!/var/cache
+/var/cache/*
+!var/cache/.gitkeep
+!/var/log
+/var/log/*
+!var/log/.gitkeep
+!/var/sessions
+/var/sessions/*
+!var/sessions/.gitkeep
+
+###> symfony/framework-bundle ###
 .env
+/public/bundles/x
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+###> symfony/web-server-bundle ###
+.web-server-pid
+###< symfony/web-server-bundle ###
+
+###> symfony/webpack-encore-pack ###
+/node_modules/
+/public/build/
+###< symfony/webpack-encore-pack ###
