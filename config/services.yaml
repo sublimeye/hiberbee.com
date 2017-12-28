@@ -4,6 +4,7 @@ parameters:
     locale: 'en'
     # This parameter defines the codes of the locales (languages) enabled in the application
     app_locales: en|ru
+    user_roles: ROLE_DEVELOPER|ROLE_USER
     app.notifications.email_sender: mailer@hiberbee.com
 
 services:

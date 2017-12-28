@@ -23,6 +23,4 @@ RUN "date"
 RUN docker-php-ext-configure gd --with-jpeg-dir=/usr/include/ --with-freetype-dir=/usr/include/
 RUN docker-php-ext-install -j$(nproc) gd pdo pdo_mysql intl pcntl opcache
 
-WORKDIR /var/www/hiberbee.com
-
 ADD www.conf /etc/php7/php-fpm.d/

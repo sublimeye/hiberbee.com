@@ -21,11 +21,12 @@ services:
     depends_on:
       - db
     volumes:
-      - ${PROJECT_LOCAL_PATH}:${PROJECT_REMOTE_PATH}:rw
+      - ${CODE_VOLUME_MOUNT}
     links:
       - db
     ports:
       - 9000:9000
+    working_dir: ${WORKING_DIR}
 
   web:
     image: nginx
@@ -35,17 +36,16 @@ services:
     ports:
        - 80:80
     volumes:
-      - ${PROJECT_LOCAL_PATH}:${PROJECT_REMOTE_PATH}:rw
-    environment:
-      - PROJECT_REMOTE_PATH=${PROJECT_REMOTE_PATH}
-    command: /bin/bash -c "cp $PROJECT_REMOTE_PATH/etc/web/default.conf /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+      - ${CODE_VOLUME_MOUNT}
+    command: /bin/bash -c "cp $WORKING_DIR/etc/web/default.conf /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
 
   frontend:
     image: node
     container_name: frontend
     volumes:
-      - ${PROJECT_LOCAL_PATH}:${PROJECT_REMOTE_PATH}:rw
+      - ${CODE_VOLUME_MOUNT}
     tty: true
+    working_dir: ${WORKING_DIR}
 
 volumes:
   db-data:

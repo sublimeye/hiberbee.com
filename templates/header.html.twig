@@ -12,71 +12,43 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">IT Consulting</a>
+                   aria-haspopup="true" aria-expanded="false">Services</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Diagnosis</a>
-                    <a class="dropdown-item" href="#">Software assessment</a>
-                    <a class="dropdown-item" href="#">Business process tranformation</a>
-                    <a class="dropdown-item" href="#">Software architecture</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">Development</a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Websites</a>
-                    <a class="dropdown-item" href="#">Templates</a>
-                    <a class="dropdown-item" href="#">MVP & Prototypes</a>
-                    <a class="dropdown-item" href="#">Team compilation</a>
-                    <a class="dropdown-item" href="#">SEO & SMM</a>
-                    <a class="dropdown-item" href="#">IT Support & Maintenance 24/7</a>
-                    <a class="dropdown-item" href="#">Dev/Ops</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">Project management</a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">{{ 'agile_methodologies_implementation'|trans }}</a>
-                    <a class="dropdown-item" href="#">{{ 'business_analysis'|trans }}</a>
-                    <a class="dropdown-item" href="#">{{ 'software_requirements_specification_development'|trans }}</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">Device management</a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Parental control</a>
-                    <a class="dropdown-item" href="#">Windows / Linux / Mac / Android / iOS recovery</a>
-                    <a class="dropdown-item" href="#">Software installation</a>
-                    <a class="dropdown-item" href="#">Restricted software setup</a>
-                    <a class="dropdown-item" href="#">VPN Lease</a>
-                    <a class="dropdown-item" href="#">Data recovery</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">Company bootstrap package</a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Infrastructure setup</a>
-                    <a class="dropdown-item" href="#">IT Company infrastructure</a>
-                    <a class="dropdown-item" href="#">Offshore account management</a>
-                    <a class="dropdown-item" href="#">Peak resources</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">Coaching</a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Web development from scratch</a>
-                    <a class="dropdown-item" href="#">Information technologies for kids</a>
-                    <a class="dropdown-item" href="#">Computer science</a>
+                    <a class="dropdown-item"
+                       href="{{ path('page', {'_locale': app.request.locale, '_role': 'ROLE_DEVELOPER', 'slug': 'project_management'}) }}">Project
+                        Management</a>
                 </div>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">About</a>
             </li>
         </ul>
+    </div>
+    <div class="header-dropdowns">
+        <div class="dropdown">
+            <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ 'language'|trans }}
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item"
+                   href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}">English</a>
+                <a class="dropdown-item"
+                   href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'ru'})) }}">Русский</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ 'role.select'|trans }}
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item"
+                   href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_role': 'ROLE_DEVELOPER'})) }}">{{ 'role.developer'|trans }}</a>
+                <a class="dropdown-item"
+                   href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_role': 'ROLE_USER'})) }}">{{ 'role.user'|trans }}</a>
+            </div>
+        </div>
     </div>
 
 </nav>

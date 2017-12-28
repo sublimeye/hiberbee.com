@@ -2,17 +2,25 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" target-language="ru" datatype="plaintext" original="file.ext">
         <body>
-            <trans-unit id="agile_methodologies_implementation">
-                <source>agile_methodologies_implementation</source>
-                <target>Внедрение гибких методологий разработки</target>
+            <trans-unit id="page.not_found">
+                <source>page.not_found</source>
+                <target>Страница не найдена</target>
             </trans-unit>
-            <trans-unit id="business_analysis">
-                <source>business_analysis</source>
-                <target>Бизнес анализ</target>
+            <trans-unit id="role.developer">
+                <source>role.developer</source>
+                <target>Разработчик</target>
             </trans-unit>
-            <trans-unit id="software_requirements_specification_development">
-                <source>software_requirements_specification_development</source>
-                <target>Создание спецификаций по разработке программного обеспечения</target>
+            <trans-unit id="role.user">
+                <source>role.user</source>
+                <target>Пользователь</target>
+            </trans-unit>
+            <trans-unit id="language">
+                <source>language</source>
+                <target>Язык</target>
+            </trans-unit>
+            <trans-unit id="role.select">
+                <source>role.select</source>
+                <target>Выберите вашу роль</target>
             </trans-unit>
         </body>
     </file>

@@ -11,6 +11,7 @@
 !/var/sessions
 /var/sessions/*
 !var/sessions/.gitkeep
+yarn-error.log
 
 ###> symfony/framework-bundle ###
 .env
