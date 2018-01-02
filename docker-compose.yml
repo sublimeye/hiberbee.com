@@ -27,7 +27,7 @@ services:
     ports:
       - 9000:9000
     working_dir: ${WORKING_DIR}
-    command: composer install
+    command: ls -la
 
   web:
     image: nginx
