@@ -27,6 +27,7 @@ services:
     ports:
       - 9000:9000
     working_dir: ${WORKING_DIR}
+    command: composer install
 
   web:
     image: nginx
@@ -46,6 +47,7 @@ services:
       - ${CODE_VOLUME_MOUNT}
     tty: true
     working_dir: ${WORKING_DIR}
+    command: yarn dev
 
 volumes:
   db-data:

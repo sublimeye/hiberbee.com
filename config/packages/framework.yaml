@@ -1,4 +1,10 @@
 framework:
+    default_locale: '%locale%'
+    translator:
+        paths:
+            - '%kernel.project_dir%/translations'
+        fallbacks:
+            - '%locale%'
     secret: '%env(APP_SECRET)%'
     http_method_override: true
     trusted_hosts: ~
@@ -12,3 +18,5 @@ framework:
     cache:
         prefix_seed: hiberbee
     ide: ~
+    router:
+        strict_requirements: ~

@@ -1,0 +1,12 @@
+sudo: required
+
+services:
+  - docker
+
+language: php
+
+before_install:
+- docker-compose up -d web
+
+script:
+- bin/vendor/behat
