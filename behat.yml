@@ -10,7 +10,7 @@ default:
                 bootstrap: public/index.php
                 class: App\Kernel
         Behat\MinkExtension:
-            base_url:  "http://localhost:8000"
+            base_url:  "http://localhost"
             sessions:
                 default:
                     goutte: ~
