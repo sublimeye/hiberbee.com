@@ -20,7 +20,7 @@ before_install:
 - docker-compose up -d
 
 script:
-- ./bin/console doctrine:fixtures:load --no-interaction
+- php bin/console doctrine:fixtures:load --no-interaction
 - sonar-scanner
 
 addons:
