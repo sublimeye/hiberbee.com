@@ -1,17 +1,33 @@
+dist: trusty
 sudo: required
 
 services:
   - docker
 
 language: php
+
 php:
   - '7.2'
-
-before_script:
 
 before_install:
 - sudo /etc/init.d/mysql stop
 - docker-compose up -d web
 
 script:
-- bin/vendor/behat
+- ./vendor/bin/behat
+- sonar-scanner
+
+addons:
+  sonarcloud:
+    organization: "askent-github"
+    token:
+      secure: "qyozSbTpMpna7/fC1CkFfaLQ2+oJ2QOuNvCvHNtQ0699goLEdcE7Yfa5f5ykCO7bGY04YW9K/HnJM6L4gcu9Y68xCpKMVS6qad7iBV5N0GVhjWCsLGRoxXk6vIMqH6PUH3SJkZW6wbDoVK7VD8g2pbMZ1rDTLJ/Vl+m1APBl6gF/rxbmmW/T5PsOnAZQvU5kY0FYW5uDZRJUlRBUgCs1pDtdlvjDe039aC03k3SpMZ
+              GzjSbx+lCwxMxZmM8mDzg/chRDRozZeQzEBOC5iC9rxr/d3VrBWUw3ED1wsNu8VFaX12fu4ntN+21SrxCoxR5YCVaEZpNuDJhtQ810CPVNTX/iF5a1Tvh1Z/O0KeOuLxF7X/Tb7pGX4JhWcDs96OJI+2HPc59IggTzs8MtjjvQsmRZuQa1JUfRCMfj6RIPihcYhtWZlK2+PNmkOpwnKgmd3IhKPvQS/8rqYb+3c5tq9vTq0nVk7k/
+              j57uL+L1bvov5v1bQ3fmMD+kWdfGXBar+g0vTZyUBwg83kSKk3Iqf/mvKI8YL232GkCk4kzmY71ZO/NDX5IgYhwVdkEErXQDr7Cmr6/nEqeI1akrs7e3GCi5jtu0+dGA2z4DUK6TZ5Pe0ngWL7N3dkCWtOn/erpWodezcQaIGSk72+ySv0XVeeoK35gQ1NbE7IJJZxQui+ik="
+
+jdk:
+  - oraclejdk8
+
+cache:
+  directories:
+    - '$HOME/.sonar/cache'
