@@ -1,0 +1,16 @@
+default:
+    suites:
+        default:
+            contexts:
+                - App\Contexts\FeatureContext
+
+    extensions:
+        Behat\Symfony2Extension:
+            kernel:
+                bootstrap: public/index.php
+                class: App\Kernel
+        Behat\MinkExtension:
+            base_url:  "http://localhost:8000"
+            sessions:
+                default:
+                    goutte: ~
