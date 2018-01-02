@@ -8,9 +8,9 @@ php:
   - '7.2'
 
 before_script:
-- sudo /etc/init.d/mysql stop
 
 before_install:
+- sudo /etc/init.d/mysql stop
 - docker-compose up -d web
 
 script:
