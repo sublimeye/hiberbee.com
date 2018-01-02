@@ -11,6 +11,7 @@ php:
 
 before_install:
 - sudo /etc/init.d/mysql stop
+- composer install
 - docker-compose up -d web
 
 script:
