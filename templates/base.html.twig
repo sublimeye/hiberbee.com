@@ -15,29 +15,12 @@
 <main role="main" class="container">
     {% block content %}{% endblock %}
 </main>
+{% include 'facebook-widget.html.twig' %}
 {% include 'footer.html.twig' %}
 {% block javascripts %}
     <script src="{{ asset('build/manifest.js') }}"></script>
     <script src="{{ asset('build/js/common.js') }}"></script>
     <script src="{{ asset('build/js/app.js') }}"></script>
 {% endblock %}
-<div class="modal fade" id="selectRole" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Choose your awareness</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <a><i class="fa fa-3x fa-border fa-pull-left fa-user" aria-hidden="true"></i></a>
-                <a><i class="fa fa-3x fa-border fa-pull-left fa-user-secret" aria-hidden="true"></i></a>
-                <a><i class="fa fa-3x fa-border fa-pull-left fa-briefcase" aria-hidden="true"></i></a>
-            </div>
-        </div>
-    </div>
-</div>
 </body>
 </html>
