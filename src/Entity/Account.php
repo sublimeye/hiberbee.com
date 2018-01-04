@@ -8,19 +8,11 @@
  * file that was distributed with this source code.
  */
 
-/**
- * Created by IntelliJ IDEA.
- * User: Vlad Volkov
- * Date: 1/4/2018
- * Time: 3:19 PM
- */
-
 namespace App\Entity;
 
-
-use Doctrine\ORM\Mapping as ORM;
-use Ramsey\Uuid\Uuid;
-use Symfony\Component\Security\Core\User\UserInterface;
+use Doctrine\ORM\Mapping as ORM,
+    Ramsey\Uuid\Uuid,
+    Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity
@@ -37,29 +29,18 @@ class Account implements UserInterface, \Serializable
      * @ORM\GeneratedValue(strategy="CUSTOM")
      * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidOrderedTimeGenerator")
      */
-    protected $id;
+    private $id;
 
     /**
-     * @ORM\Column(type="string", length=64)
+     * @var string
+     * @ORM\Column()
      */
-    private $password;
+    private $facebookId;
 
     /**
      * @ORM\Column(type="string", length=60, unique=true)
      */
     private $email;
-
-    /**
-     * @ORM\Column(name="is_active", type="boolean")
-     */
-    private $isActive;
-
-    public function __construct()
-    {
-        $this->isActive = true;
-        // may not be needed, see section on salt below
-        // $this->salt = md5(uniqid('', true));
-    }
 
     public function getUsername()
     {
@@ -73,7 +54,7 @@ class Account implements UserInterface, \Serializable
 
     public function getPassword()
     {
-        return $this->password;
+        return null;
     }
 
     public function getRoles()
@@ -91,9 +72,7 @@ class Account implements UserInterface, \Serializable
         return serialize(array(
             $this->id,
             $this->email,
-            $this->password,
-            // see section on salt below
-            // $this->salt,
+            $this->facebookId,
         ));
     }
 
@@ -103,9 +82,41 @@ class Account implements UserInterface, \Serializable
         list (
             $this->id,
             $this->email,
-            $this->password,
-            // see section on salt below
-            // $this->salt
+            $this->facebookId,
             ) = unserialize($serialized);
     }
+
+    /**
+     * @return string
+     */
+    public function getFacebookId(): string
+    {
+        return $this->facebookId;
+    }
+
+    /**
+     * @param string $facebookId
+     */
+    public function setFacebookId(string $facebookId): void
+    {
+        $this->facebookId = $facebookId;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param mixed $email
+     */
+    public function setEmail($email): void
+    {
+        $this->email = $email;
+    }
+
+
 }
