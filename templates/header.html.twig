@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">Home</a>
+    <a class="navbar-brand" href="{{ path('homepage') }}">Hiberbee</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -15,7 +15,7 @@
                    aria-haspopup="true" aria-expanded="false">Services</a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item"
-                       href="{{ path('page', {'_locale': app.request.locale, '_role': 'ROLE_DEVELOPER', 'slug': 'project_management'}) }}">Project
+                       href="{{ path('page', {'_locale': app.request.locale, '_role': 'it', 'slug': 'project_management'}) }}">Project
                         Management</a>
                 </div>
             </li>
@@ -44,11 +44,49 @@
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item"
-                   href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_role': 'ROLE_DEVELOPER'})) }}">{{ 'role.developer'|trans }}</a>
+                   href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_role': 'it'})) }}">{{ 'role.developer'|trans }}</a>
                 <a class="dropdown-item"
-                   href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_role': 'ROLE_USER'})) }}">{{ 'role.user'|trans }}</a>
+                   href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_role': 'user'})) }}">{{ 'role.user'|trans }}</a>
             </div>
         </div>
-    </div>
+        <div style="float: right;padding-left: 3px">
+            <div id="fb-root"></div>
+            <script>
 
+                function statusChangeCallback(response) {
+                    console.log(response);
+                    if (response.status === 'connected') {
+                        FB.api('/me', {fields: 'name,email,gender,locale,friends,picture'}, function (response) {
+                            console.log(response);
+                        });
+                    }
+                }
+
+                window.fbAsyncInit = function () {
+                    FB.init({
+                        appId: '145510372820525',
+                        cookie: true,
+                        xfbml: true,
+                        version: 'v2.11'
+                    });
+
+                    FB.getLoginStatus(function (response) {
+                        statusChangeCallback(response);
+                    });
+
+                };
+
+                (function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "https://connect.facebook.net/en_US/sdk.js";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+            </script>
+            <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="continue_with"
+                 data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
+        </div>
+    </div>
 </nav>

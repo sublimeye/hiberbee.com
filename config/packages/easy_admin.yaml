@@ -1,0 +1,16 @@
+easy_admin:
+    entities:
+        Page:
+          class: App\Entity\Page
+          form:
+              fields: ['title', 'content', 'locale', { property: 'locale', type: 'App\Form\Type\LocaleType'}, 'role', 'slug']
+        Category:
+          class: App\Entity\Category
+          form:
+              fields: ['name', 'locale', { property: 'locale', type: 'App\Form\Type\LocaleType'}, 'slug', 'pages']
+    design:
+        assets:
+            js:
+            - '//cdn.ckeditor.com/4.8.0/standard/ckeditor.js'
+            - 'build/manifest.js'
+            - 'build/js/admin.js'

@@ -13,27 +13,49 @@
 
 namespace App\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping as ORM,
+    Fresh\DoctrineEnumBundle\Validator\Constraints as DoctrineAssert,
+    Symfony\Component\Validator\Constraints as Assert,
+    Ramsey\Uuid\Uuid;
 
 /**
- * @ORM\Entity()
+ * @ORM\Entity
+ * @ORM\Table(uniqueConstraints={@ORM\UniqueConstraint(name="locale_role_slug", columns={"locale", "role", "slug"})})
  */
 class Page
 {
 
     /**
+     * @var Uuid
+     *
      * @ORM\Id
-     * @ORM\Column()
+     * @ORM\Column(type="uuid", unique=true)
+     * @ORM\GeneratedValue(strategy="CUSTOM")
+     * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidOrderedTimeGenerator")
+     */
+    protected $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="locale_type", nullable=false)
+     * @DoctrineAssert\Enum(entity="App\DBAL\Types\LocaleEnumType")
      */
     private $locale;
+
     /**
-     * @ORM\Id()
-     * @ORM\Column()
+     * @var string
+     *
+     * @ORM\Column(type="role_type", nullable=false)
+     * @DoctrineAssert\Enum(entity="App\DBAL\Types\RoleEnumType")
      */
     private $role;
+
     /**
-     * @ORM\Id()
+     * @var string
+     *
      * @ORM\Column()
+     * @Assert\NotBlank()
      */
     private $slug;
     /**
@@ -41,16 +63,14 @@ class Page
      */
     private $title;
     /**
-     * @ORM\Column()
+     * @ORM\Column(type="text")
      */
     private $content;
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="pages")
+     */
+    private $category;
 
-    public function __construct($locale, $role, $slug)
-    {
-        $this->locale = $locale;
-        $this->role = $role;
-        $this->slug = $slug;
-    }
 
     /**
      * @return mixed
@@ -93,11 +113,73 @@ class Page
     }
 
     /**
-     * @param mixed $slug
+     * @param string $slug
      */
-    public function setSlug($slug): void
+    public function setSlug(string $slug): void
     {
         $this->slug = $slug;
+    }
+
+
+    /**
+     * @return null|Category
+     */
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param Category $category
+     */
+    public function setCategory(Category $category): void
+    {
+        $this->category = $category;
+    }
+
+    /**
+     * @return null|Uuid
+     */
+    public function getId(): ?Uuid
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLocale(): ?string
+    {
+        return $this->locale;
+    }
+
+    /**
+     * @param string $locale
+     */
+    public function setLocale(string $locale): void
+    {
+        $this->locale = $locale;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getRole(): ?string
+    {
+        return $this->role;
+    }
+
+    /**
+     * @param string $role
+     */
+    public function setRole(string $role): void
+    {
+        $this->role = $role;
+    }
+
+    public function __toString()
+    {
+        return $this->title;
     }
 
 

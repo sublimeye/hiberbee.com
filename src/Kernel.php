@@ -13,6 +13,8 @@
 
 namespace App;
 
+use App\DBAL\Types\LocaleEnumType;
+use App\DBAL\Types\RoleEnumType;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -23,20 +25,35 @@ class Kernel extends BaseKernel
 {
     use MicroKernelTrait;
 
+    /**
+     *
+     */
     private const ROUTE_CONFIG_DIRECTORY_NAME = 'routes';
 
+    /**
+     *
+     */
     const CONFIG_EXTS = '.{php,xml,yaml,yml}';
 
+    /**
+     * @return string
+     */
     public function getCacheDir()
     {
         return $this->getProjectDir() . '/var/cache/' . $this->environment;
     }
 
+    /**
+     * @return string
+     */
     public function getLogDir()
     {
         return $this->getProjectDir() . '/var/log';
     }
 
+    /**
+     * @return \Generator|\Symfony\Component\HttpKernel\Bundle\BundleInterface[]
+     */
     public function registerBundles()
     {
         $contents = require $this->getProjectDir() . '/config/bundles.php';
@@ -47,9 +64,18 @@ class Kernel extends BaseKernel
         }
     }
 
+    /**
+     * @param ContainerBuilder $container
+     * @param LoaderInterface $loader
+     * @throws \Exception
+     */
     protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader)
     {
         $container->setParameter('container.dumper.inline_class_loader', true);
+
+        $container->setParameter('app_locales', implode('|', LocaleEnumType::getChoices()));
+        $container->setParameter('app_roles', implode('|', RoleEnumType::getChoices()));
+
         $confDir = $this->getProjectDir() . '/config';
         $loader->load($confDir . '/packages/*' . self::CONFIG_EXTS, 'glob');
         if (is_dir($confDir . '/packages/' . $this->environment)) {
@@ -59,6 +85,10 @@ class Kernel extends BaseKernel
         $loader->load($confDir . '/services_' . $this->environment . self::CONFIG_EXTS, 'glob');
     }
 
+    /**
+     * @param RouteCollectionBuilder $routes
+     * @throws \Symfony\Component\Config\Exception\FileLoaderLoadException
+     */
     protected function configureRoutes(RouteCollectionBuilder $routes)
     {
         $confDir = $this->getProjectDir() . '/config';

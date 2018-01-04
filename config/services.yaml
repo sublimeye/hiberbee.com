@@ -2,9 +2,8 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'en'
+    role: 'user'
     # This parameter defines the codes of the locales (languages) enabled in the application
-    app_locales: en|ru
-    user_roles: ROLE_DEVELOPER|ROLE_USER
     app.notifications.email_sender: mailer@hiberbee.com
 
 services:
@@ -25,5 +24,5 @@ services:
         # you can exclude directories or files
         # but if a service is unused, it's removed anyway
         exclude: '../src/{Entity,Migrations,Tests}'
-
-
+    oauth_aware.user_provider.service:
+        class: HWI\Bundle\OAuthBundle\Security\Core\User\OAuthUserProvider

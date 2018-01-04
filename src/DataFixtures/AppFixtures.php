@@ -10,6 +10,8 @@
 
 namespace App\DataFixtures;
 
+use App\DBAL\Types\LocaleEnumType;
+use App\DBAL\Types\RoleEnumType;
 use App\Entity\Page;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 
@@ -26,7 +28,10 @@ class AppFixtures extends Fixture
     private function loadPages(ObjectManager $manager)
     {
         foreach ($this->getPageData() as [$locale, $role, $slug, $title, $content]) {
-            $page = new Page($locale, $role, $slug);
+            $page = new Page();
+            $page->setLocale($locale);
+            $page->setRole($role);
+            $page->setSlug($slug);
             $page->setTitle($title);
             $page->setContent($content);
             $manager->persist($page);
@@ -38,10 +43,10 @@ class AppFixtures extends Fixture
     {
         return [
             // $pageData = [$locale, $role, $slug,  $title, $content];
-            ['en', 'ROLE_DEVELOPER', 'project_management', 'Project management for developers', 'Project management is blabla'],
-            ['en', 'ROLE_USER', 'project_management', 'Project management for users', 'Project management is blabla'],
-            ['ru', 'ROLE_DEVELOPER', 'project_management', 'Проектный менеджмент для разработчиков', 'Проектный менеджмент это блабла'],
-            ['ru', 'ROLE_USER', 'project_management', 'Проектный менеджмент для пользователей', 'Проектный менеджмент это блабла'],
+            [LocaleEnumType::ENGLISH, RoleEnumType::ROLE_DEVELOPER, 'project_management', 'Project management for developers', 'Project management is blabla'],
+            [LocaleEnumType::ENGLISH, RoleEnumType::ROLE_USER, 'project_management', 'Project management for users', 'Project management is blabla'],
+            [LocaleEnumType::RUSSIAN, RoleEnumType::ROLE_DEVELOPER, 'project_management', 'Проектный менеджмент для разработчиков', 'Проектный менеджмент это блабла'],
+            [LocaleEnumType::RUSSIAN, RoleEnumType::ROLE_USER, 'project_management', 'Проектный менеджмент для пользователей', 'Проектный менеджмент это блабла'],
         ];
     }
 }

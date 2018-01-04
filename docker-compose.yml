@@ -46,7 +46,6 @@ services:
       - ${CODE_VOLUME_MOUNT}
     tty: true
     working_dir: ${WORKING_DIR}
-    command: /bin/bash -c "yarn install && dev"
 
 volumes:
   db-data:
