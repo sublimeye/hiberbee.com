@@ -12,11 +12,29 @@ namespace App\Controller;
 
 use App\Entity\Account;
 use Symfony\{
-    Bundle\FrameworkBundle\Controller\Controller, Component\HttpFoundation\JsonResponse, Component\HttpFoundation\Request, Component\Routing\Annotation\Route
+    Bundle\FrameworkBundle\Controller\Controller, Component\HttpFoundation\JsonResponse, Component\HttpFoundation\Request, Component\HttpFoundation\Response, Component\Routing\Annotation\Route, Component\Security\Http\Authentication\AuthenticationUtils
 };
 
 class SecurityController extends Controller
 {
+
+    /**
+     * @param Request $request
+     * @param AuthenticationUtils $authenticationUtils
+     * @return Response
+     * @Route("/login", name="login")
+     */
+    public function login(Request $request, AuthenticationUtils $authenticationUtils)
+    {
+        $error = $authenticationUtils->getLastAuthenticationError();
+
+        $lastUsername = $authenticationUtils->getLastUsername();
+
+        return $this->render('security/login.html.twig', array(
+            'last_username' => $lastUsername,
+            'error' => $error,
+        ));
+    }
 
     /**
      * @param Request $request
@@ -25,7 +43,11 @@ class SecurityController extends Controller
      */
     public function syncWithFacebook(Request $request)
     {
-        $account = $this->getDoctrine()->getRepository(Account::class)->findOneByEmail($request->request->get('email'));
+        $doctrine = $this->getDoctrine();
+        $account = $doctrine
+            ->getRepository(Account::class)
+            ->findOneBy(['email' => $request->request->get('email')]);
+
         if (null == $account) {
             $account = new Account();
             $account->setEmail($request->request->get('email'));
@@ -36,6 +58,32 @@ class SecurityController extends Controller
 
         }
         return new JsonResponse();
-
     }
+
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     * @Route("/sync-with-linkedin", name="sync-with-linkedin")
+     */
+    public function syncWithLinkedin(Request $request)
+    {
+        $doctrine = $this->getDoctrine();
+        $account = $doctrine
+            ->getRepository(Account::class)
+            ->findOneBy(['email' => $request->request->get('emailAddress')]);
+
+        if (null == $account) {
+            $account = new Account();
+            $account->setEmail($request->request->get('email'));
+            $account->setFacebookId($request->request->get('id'));
+            $this->getDoctrine()->getManager()->persist($account);
+            return new JsonResponse(null, 201);
+        } else {
+            $account->setLinkedinId($request->request->get('id'));
+        }
+        $this->getDoctrine()->getManager()->flush();
+
+        return new JsonResponse();
+    }
+
 }

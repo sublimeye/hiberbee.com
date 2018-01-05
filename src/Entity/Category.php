@@ -10,41 +10,42 @@
 
 namespace App\Entity;
 
-use Doctrine\{
-    ORM\Mapping as ORM, Common\Collections\Collection
+use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping\{
+    Column, CustomIdGenerator, Entity, GeneratedValue, Id, OneToMany
 };
-use Fresh\DoctrineEnumBundle\Validator\Constraints as DoctrineAssert,
-    Ramsey\Uuid\Uuid;
+use Fresh\DoctrineEnumBundle\Validator\Constraints as DoctrineAssert;
+use Ramsey\Uuid\Uuid;
 
 /**
- * @ORM\Entity()
+ * @Entity()
  */
-class Category
+final class Category
 {
     /**
      * @var Uuid
      *
-     * @ORM\Id
-     * @ORM\Column(type="uuid", unique=true)
-     * @ORM\GeneratedValue(strategy="CUSTOM")
-     * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidOrderedTimeGenerator")
+     * @Id
+     * @Column(type="uuid", unique=true)
+     * @GeneratedValue(strategy="CUSTOM")
+     * @CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidOrderedTimeGenerator")
      */
     protected $id;
 
     /**
-     * @ORM\Column()
+     * @Column()
      */
     private $slug;
 
     /**
-     * @ORM\Column()
+     * @Column()
      */
     private $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(type="locale_type", nullable=false)
+     * @Column(type="locale_type", nullable=false)
      * @DoctrineAssert\Enum(entity="App\DBAL\Types\LocaleEnumType")
      */
     private $locale;
@@ -52,7 +53,7 @@ class Category
     /**
      * @var Collection
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\Page", mappedBy="category")
+     * @OneToMany(targetEntity="App\Entity\Page", mappedBy="category")
      */
     private $pages;
 

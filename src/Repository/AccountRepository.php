@@ -10,7 +10,9 @@
 
 namespace App\Repository;
 
-class AccountRepository
+use Doctrine\ORM\EntityRepository;
+
+class AccountRepository extends EntityRepository
 {
 
 }

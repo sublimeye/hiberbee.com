@@ -9,6 +9,12 @@
     {% block stylesheets %}
         <link href="{{ asset('build/css/app.css') }}" rel="stylesheet"/>
     {% endblock %}
+    <script type="text/javascript" src="//platform.linkedin.com/in.js">
+        api_key: {{ linkedin_app_id }}
+        onLoad: syncLinkedinData
+        authorize: true
+        // lang:      [LANG_LOCALE]
+    </script>
 </head>
 <body>
 {% include 'header.html.twig' %}
@@ -48,7 +54,7 @@
 
         window.fbAsyncInit = function () {
             FB.init({
-                appId: '145510372820525',
+                appId: '{{ facebook_app_id }}',
                 cookie: true,
                 xfbml: true,
                 version: 'v2.11'
@@ -75,6 +81,26 @@
         <fb:login-button scope="public_profile,email" onlogin="syncFacebookData();">
         </fb:login-button>
     </div>
+    <script>
+        function syncLinkedinData() {
+            IN.Event.on(IN, "auth", getProfileData);
+        }
+
+        function onSuccess(data) {
+            console.log(data);
+            postAjax('/sync-with-linkedin', data, function () {
+            });
+        }
+
+        function onError(error) {
+            console.log(error);
+        }
+
+        function getProfileData() {
+            IN.API.Raw("/people/~:(id,first-name,last-name,email-address,headline,positions,location,industry,specialties,summary,picture-url,public-profile-url)").result(onSuccess).error(onError);
+        }
+    </script>
+    <script type="in/Login"></script>
 </div>
 <main role="main" class="container">
     {% block content %}{% endblock %}

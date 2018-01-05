@@ -13,14 +13,16 @@
 
 namespace App\Entity;
 
-use Doctrine\ORM\Mapping as ORM,
-    Fresh\DoctrineEnumBundle\Validator\Constraints as DoctrineAssert,
-    Symfony\Component\Validator\Constraints as Assert,
-    Ramsey\Uuid\Uuid;
+use Doctrine\ORM\Mapping\{
+    Column, CustomIdGenerator, Entity, GeneratedValue, Id, ManyToOne, Table, UniqueConstraint
+};
+use Fresh\DoctrineEnumBundle\Validator\Constraints as DoctrineAssert;
+use Ramsey\Uuid\Uuid;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity
- * @ORM\Table(uniqueConstraints={@ORM\UniqueConstraint(name="locale_role_slug", columns={"locale", "role", "slug"})})
+ * @Entity
+ * @Table(uniqueConstraints={@UniqueConstraint(name="locale_role_slug", columns={"locale", "role", "slug"})})
  */
 class Page
 {
@@ -28,17 +30,17 @@ class Page
     /**
      * @var Uuid
      *
-     * @ORM\Id
-     * @ORM\Column(type="uuid", unique=true)
-     * @ORM\GeneratedValue(strategy="CUSTOM")
-     * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidOrderedTimeGenerator")
+     * @Id
+     * @Column(type="uuid", unique=true)
+     * @GeneratedValue(strategy="CUSTOM")
+     * @CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidOrderedTimeGenerator")
      */
     protected $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(type="locale_type", nullable=false)
+     * @Column(type="locale_type", nullable=false)
      * @DoctrineAssert\Enum(entity="App\DBAL\Types\LocaleEnumType")
      */
     private $locale;
@@ -46,7 +48,7 @@ class Page
     /**
      * @var string
      *
-     * @ORM\Column(type="role_type", nullable=false)
+     * @Column(type="role_type", nullable=false)
      * @DoctrineAssert\Enum(entity="App\DBAL\Types\RoleEnumType")
      */
     private $role;
@@ -54,20 +56,20 @@ class Page
     /**
      * @var string
      *
-     * @ORM\Column()
+     * @Column()
      * @Assert\NotBlank()
      */
     private $slug;
     /**
-     * @ORM\Column()
+     * @Column()
      */
     private $title;
     /**
-     * @ORM\Column(type="text")
+     * @Column(type="text")
      */
     private $content;
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="pages")
+     * @ManyToOne(targetEntity="App\Entity\Category", inversedBy="pages")
      */
     private $category;
 

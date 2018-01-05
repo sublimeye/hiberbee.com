@@ -1,3 +1,6 @@
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    globals:
+        linkedin_app_id: '%linkedin_app_id%'
+        facebook_app_id: '%facebook_app_id%'

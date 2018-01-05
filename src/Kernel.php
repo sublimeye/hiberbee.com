@@ -25,18 +25,12 @@ class Kernel extends BaseKernel
 {
     use MicroKernelTrait;
 
-    /**
-     *
-     */
     private const ROUTE_CONFIG_DIRECTORY_NAME = 'routes';
 
-    /**
-     *
-     */
     const CONFIG_EXTS = '.{php,xml,yaml,yml}';
 
     /**
-     * @return string
+     * @inheritdoc
      */
     public function getCacheDir()
     {
@@ -44,7 +38,7 @@ class Kernel extends BaseKernel
     }
 
     /**
-     * @return string
+     * @inheritdoc
      */
     public function getLogDir()
     {
@@ -52,7 +46,7 @@ class Kernel extends BaseKernel
     }
 
     /**
-     * @return \Generator|\Symfony\Component\HttpKernel\Bundle\BundleInterface[]
+     * @inheritdoc
      */
     public function registerBundles()
     {
@@ -65,9 +59,7 @@ class Kernel extends BaseKernel
     }
 
     /**
-     * @param ContainerBuilder $container
-     * @param LoaderInterface $loader
-     * @throws \Exception
+     * @inheritdoc
      */
     protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader)
     {
@@ -86,8 +78,7 @@ class Kernel extends BaseKernel
     }
 
     /**
-     * @param RouteCollectionBuilder $routes
-     * @throws \Symfony\Component\Config\Exception\FileLoaderLoadException
+     * @inheritdoc
      */
     protected function configureRoutes(RouteCollectionBuilder $routes)
     {

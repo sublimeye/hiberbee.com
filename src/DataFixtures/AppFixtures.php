@@ -14,7 +14,6 @@ use App\DBAL\Types\LocaleEnumType;
 use App\DBAL\Types\RoleEnumType;
 use App\Entity\Page;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-
 use Doctrine\Common\Persistence\ObjectManager;
 
 class AppFixtures extends Fixture

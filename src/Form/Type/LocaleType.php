@@ -8,24 +8,18 @@
  * file that was distributed with this source code.
  */
 
-/**
- * Created by IntelliJ IDEA.
- * User: Vlad Volkov
- * Date: 1/4/2018
- * Time: 12:44 PM
- */
-
 namespace App\Form\Type;
 
-
-use Symfony\Component\Form\AbstractType,
-    Symfony\Component\OptionsResolver\OptionsResolver,
-    Symfony\Component\Form\Extension\Core\Type\ChoiceType,
-    App\DBAL\Types\LocaleEnumType;
-
+use App\DBAL\Types\LocaleEnumType;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class LocaleType extends AbstractType
 {
+    /**
+     * @inheritdoc
+     */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
@@ -33,11 +27,12 @@ class LocaleType extends AbstractType
         ));
     }
 
+    /**
+     * @inheritdoc
+     */
     public function getParent()
     {
         return ChoiceType::class;
     }
-
-
 
 }
