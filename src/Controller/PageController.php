@@ -29,10 +29,16 @@ class PageController extends Controller
      */
     public function indexAction($_locale, $_role, $slug)
     {
-        $page = $this->getDoctrine()->getRepository(Page::class)->findOneBy(['locale' => $_locale, 'role' => $_role, 'slug' => $slug]);
-        return $this->render('default/page.html.twig', [
-            'page' => $page
-        ]);
+        $page = $this->getDoctrine()->getRepository(Page::class)->findOneBy(
+            ['locale' => $_locale, 'role' => $_role, 'slug' => $slug]
+        );
+
+        return $this->render(
+            'default/page.html.twig',
+            [
+                'page' => $page,
+            ]
+        );
     }
 
 }

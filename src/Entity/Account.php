@@ -49,6 +49,16 @@ final class Account implements UserInterface, \Serializable
      */
     private $email;
 
+    /**
+     * @var string
+     */
+    private $plainPassword;
+    /**
+     * @var string
+     * @Column()
+     */
+    private $password;
+
     public function getUsername()
     {
         return $this->getEmail();
@@ -76,6 +86,15 @@ final class Account implements UserInterface, \Serializable
 
     public function getPassword()
     {
+        return $this->password;
+    }
+
+    /**
+     * @param string $password
+     */
+    public function setPassword(string $password): void
+    {
+        $this->password = $password;
     }
 
     public function getRoles()
@@ -90,11 +109,15 @@ final class Account implements UserInterface, \Serializable
     /** @inheritdoc */
     public function serialize()
     {
-        return serialize(array(
-            $this->id,
-            $this->email,
-            $this->facebookId,
-        ));
+        return serialize(
+            array(
+                $this->id,
+                $this->email,
+                $this->password,
+                $this->facebookId,
+                $this->linkedinId,
+            )
+        );
     }
 
     /** @inheritdoc */
@@ -103,7 +126,9 @@ final class Account implements UserInterface, \Serializable
         list (
             $this->id,
             $this->email,
+            $this->password,
             $this->facebookId,
+            $this->linkedinId,
             ) = unserialize($serialized);
     }
 
@@ -139,5 +164,20 @@ final class Account implements UserInterface, \Serializable
         $this->linkedinId = $linkedinId;
     }
 
+    /**
+     * @return string
+     */
+    public function getPlainPassword(): ?string
+    {
+        return $this->plainPassword;
+    }
+
+    /**
+     * @param string $plainPassword
+     */
+    public function setPlainPassword(string $plainPassword): void
+    {
+        $this->plainPassword = $plainPassword;
+    }
 
 }

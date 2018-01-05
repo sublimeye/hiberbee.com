@@ -49,5 +49,10 @@
                    href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_role': 'user'})) }}">{{ 'role.user'|trans }}</a>
             </div>
         </div>
+        {% if not app.user %}
+            {% include 'oauth.html.twig' %}
+        {% else %}
+            <a href="{{ path('logout') }}">Logout</a>
+        {% endif %}
     </div>
 </nav>

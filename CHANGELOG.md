@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [0.0.2] - 2018-01-05
 ### Added
 - Linkedin OAuth and profile synchronizing with persistent storage
+- Authentication done on backend
+- Mail with new password will be sended on sign up
 
 ### Refactoring
 - Moved secret keys to .env file

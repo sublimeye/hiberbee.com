@@ -22,9 +22,11 @@ class LocaleType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'choices' => LocaleEnumType::getChoices()
-        ));
+        $resolver->setDefaults(
+            array(
+                'choices' => LocaleEnumType::getChoices(),
+            )
+        );
     }
 
     /**

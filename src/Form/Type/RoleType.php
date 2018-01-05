@@ -22,9 +22,11 @@ class RoleType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'choices' => RoleEnumType::getChoices()
-        ));
+        $resolver->setDefaults(
+            array(
+                'choices' => RoleEnumType::getChoices(),
+            )
+        );
     }
 
     /**

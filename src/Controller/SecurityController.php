@@ -11,8 +11,9 @@
 namespace App\Controller;
 
 use App\Entity\Account;
+use App\Events;
 use Symfony\{
-    Bundle\FrameworkBundle\Controller\Controller, Component\HttpFoundation\JsonResponse, Component\HttpFoundation\Request, Component\HttpFoundation\Response, Component\Routing\Annotation\Route, Component\Security\Http\Authentication\AuthenticationUtils
+    Bundle\FrameworkBundle\Controller\Controller, Component\EventDispatcher\GenericEvent, Component\HttpFoundation\JsonResponse, Component\HttpFoundation\Request, Component\HttpFoundation\Response, Component\Routing\Annotation\Route, Component\Security\Http\Authentication\AuthenticationUtils
 };
 
 class SecurityController extends Controller
@@ -30,10 +31,13 @@ class SecurityController extends Controller
 
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->render('security/login.html.twig', array(
-            'last_username' => $lastUsername,
-            'error' => $error,
-        ));
+        return $this->render(
+            'security/login.html.twig',
+            array(
+                'last_username' => $lastUsername,
+                'error' => $error,
+            )
+        );
     }
 
     /**
@@ -43,44 +47,48 @@ class SecurityController extends Controller
      */
     public function syncWithFacebook(Request $request)
     {
+        $postParameters = $request->request;
+        $email = $postParameters->get('email');
         $doctrine = $this->getDoctrine();
         $account = $doctrine
             ->getRepository(Account::class)
-            ->findOneBy(['email' => $request->request->get('email')]);
+            ->findOneBy(['email' => $email]);
 
-        if (null == $account) {
+        if (null === $account) {
             $account = new Account();
-            $account->setEmail($request->request->get('email'));
-            $account->setFacebookId($request->request->get('id'));
-            $this->getDoctrine()->getManager()->persist($account);
-            $this->getDoctrine()->getManager()->flush();
-            return new JsonResponse(null, 201);
-
+            $account->setEmail($email);
+            $doctrine->getManager()->persist($account);
+            $this->get('event_dispatcher')->dispatch(Events::ACCOUNT_CREATED, new GenericEvent($account));
         }
+        $account->setFacebookId($postParameters->get('id'));
+
+        $doctrine->getManager()->flush();
+
         return new JsonResponse();
     }
 
     /**
      * @param Request $request
-     * @return JsonResponse
+     * @return Response
      * @Route("/sync-with-linkedin", name="sync-with-linkedin")
      */
     public function syncWithLinkedin(Request $request)
     {
+        $postParameters = $request->request;
+        $email = $postParameters->get('emailAddress');
         $doctrine = $this->getDoctrine();
         $account = $doctrine
             ->getRepository(Account::class)
-            ->findOneBy(['email' => $request->request->get('emailAddress')]);
+            ->findOneBy(['email' => $email]);
 
-        if (null == $account) {
+        if (null === $account) {
             $account = new Account();
-            $account->setEmail($request->request->get('email'));
-            $account->setFacebookId($request->request->get('id'));
+            $account->setEmail($email);
             $this->getDoctrine()->getManager()->persist($account);
-            return new JsonResponse(null, 201);
-        } else {
-            $account->setLinkedinId($request->request->get('id'));
+            $this->get('event_dispatcher')->dispatch(Events::ACCOUNT_CREATED, new GenericEvent($account));
         }
+        $account->setLinkedinId($postParameters->get('id'));
+
         $this->getDoctrine()->getManager()->flush();
 
         return new JsonResponse();

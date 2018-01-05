@@ -42,10 +42,34 @@ class AppFixtures extends Fixture
     {
         return [
             // $pageData = [$locale, $role, $slug,  $title, $content];
-            [LocaleEnumType::ENGLISH, RoleEnumType::ROLE_DEVELOPER, 'project_management', 'Project management for developers', 'Project management is blabla'],
-            [LocaleEnumType::ENGLISH, RoleEnumType::ROLE_USER, 'project_management', 'Project management for users', 'Project management is blabla'],
-            [LocaleEnumType::RUSSIAN, RoleEnumType::ROLE_DEVELOPER, 'project_management', 'Проектный менеджмент для разработчиков', 'Проектный менеджмент это блабла'],
-            [LocaleEnumType::RUSSIAN, RoleEnumType::ROLE_USER, 'project_management', 'Проектный менеджмент для пользователей', 'Проектный менеджмент это блабла'],
+            [
+                LocaleEnumType::ENGLISH,
+                RoleEnumType::ROLE_DEVELOPER,
+                'project_management',
+                'Project management for developers',
+                'Project management is blabla',
+            ],
+            [
+                LocaleEnumType::ENGLISH,
+                RoleEnumType::ROLE_USER,
+                'project_management',
+                'Project management for users',
+                'Project management is blabla',
+            ],
+            [
+                LocaleEnumType::RUSSIAN,
+                RoleEnumType::ROLE_DEVELOPER,
+                'project_management',
+                'Проектный менеджмент для разработчиков',
+                'Проектный менеджмент это блабла',
+            ],
+            [
+                LocaleEnumType::RUSSIAN,
+                RoleEnumType::ROLE_USER,
+                'project_management',
+                'Проектный менеджмент для пользователей',
+                'Проектный менеджмент это блабла',
+            ],
         ];
     }
 }

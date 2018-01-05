@@ -12,3 +12,6 @@ homepage:
         template: default/homepage.html.twig
         _locale: '%locale%'
         _role: '%role%'
+
+logout:
+    path: /logout
