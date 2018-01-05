@@ -22,6 +22,10 @@
                 <source>role.select</source>
                 <target>Выберите вашу роль</target>
             </trans-unit>
+            <trans-unit id="slider.study.header">
+                <source>slider.study.header</source>
+                <target>Тренинги, курсы, IT образование</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

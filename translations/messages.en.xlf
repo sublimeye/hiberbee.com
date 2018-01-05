@@ -22,6 +22,10 @@
                 <source>role.select</source>
                 <target>Select your role</target>
             </trans-unit>
+            <trans-unit id="slider.study.header">
+                <source>slider.study.header</source>
+                <target>Trainings, courses, IT education</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
