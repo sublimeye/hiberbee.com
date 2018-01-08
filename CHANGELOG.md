@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.0.3] - 2018-01-08
+### Added
+- New design available now for homepage
+- Call & message buttons
+- Text translations for index page
+
+### Refactoring
+- Docker is now building properly for production environments
+
 ## [0.0.2] - 2018-01-05
 ### Added
 - Linkedin OAuth and profile synchronizing with persistent storage
