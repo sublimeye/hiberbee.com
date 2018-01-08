@@ -24,3 +24,4 @@ if ('test' !== $_SERVER['APP_ENV']) {
     $response->send();
     $kernel->terminate($request, $response);
 }
+
