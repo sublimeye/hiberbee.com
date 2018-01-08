@@ -1,5 +1,29 @@
-<footer class="footer">
-    <div class="container">
-        <span class="text-muted">Place sticky footer content here.</span>
+<footer class="site-footer">
+    <div class="bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-xs-12 text-lg-left text-center">
+                    <p class="copyright-text">
+                        © Hiberbee {{ "now"|date('Y') }}. {{ 'all_rights_reserved'|trans }}
+                        {{ 'phone'|trans }}: <a href="tel:380671204517">+380(67)-120-45-17</a>
+                    </p>
+                </div>
+                <div class="col-lg-6 col-xs-12 text-lg-right text-center">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <a href="{{ path('index') }}">{{ 'menu.home'|trans }}</a>
+                        </li>
+
+                        <li class="list-inline-item">
+                            <a href="{{ path('index') }}#service_catalog">{{ 'menu.service_catalog'|trans }}</a>
+                        </li>
+
+                        <li class="list-inline-item">
+                            <a href="{{ path('index') }}#contact">{{ 'menu.contact_us'|trans }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 </footer>

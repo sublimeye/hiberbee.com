@@ -1,58 +1,44 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="{{ path('homepage') }}">Hiberbee</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+<header id="header">
+    <div class="container">
+        <div style="position: relative;z-index:5">
+            <div id="logo" class="pull-left">
+                <h1><a href="{{ path('index') }}">Hiberbee</a></h1>
+            </div>
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-            <li class="{% if app.request.attributes.get('_route') == 'homepage' %}active{% endif %} nav-item">
-                <a class="nav-link" href="{{ path('homepage') }}">Home</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">Services</a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item"
-                       href="{{ path('page', {'_locale': app.request.locale, '_role': 'it', 'slug': 'project_management'}) }}">Project
-                        Management</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-            </li>
-        </ul>
-    </div>
-    <div class="header-dropdowns">
-        <div class="dropdown">
-            <button class="btn btn-sm btn-warning dropdown-toggle" type="button" id="dropdownMenuButton"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{ 'language'|trans }}
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item"
-                   href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}">English</a>
-                <a class="dropdown-item"
-                   href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'ru'})) }}">Русский</a>
-            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                    <li><a href="{{ path('index') }}#about">{{ 'menu.about_us'|trans }}</a></li>
+                    {#<li><a href="{{ path('index') }}#work_models">{{ 'menu.work_models'|trans }}</a></li>#}
+                    <li><a href="{{ path('index') }}#service_catalog">{{ 'menu.service_catalog'|trans }}</a></li>
+                    {#<li class="menu-has-children"><a href="">Services</a>#}
+                    {#<ul>#}
+                    {#<li class="menu-has-children"><a href="#">Study</a>#}
+                    {#<ul>#}
+                    {#<li><a href="#">Relational Database Essentials</a></li>#}
+                    {#<li><a href="#">System Architecture</a></li>#}
+                    {#</ul>#}
+                    {#</li>#}
+                    {#<li><a href="#">IT Consulting</a></li>#}
+                    {#<li><a href="#">Project migration</a></li>#}
+                    {#</ul>#}
+                    {#</li>#}
+                    {#<li><a href="{{ path('index') }}#our_projects">{{ 'menu.our_projects'|trans }}</a></li>#}
+                    {#<li><a href="{{ path('index') }}#team">{{ 'menu.team'|trans }}</a></li>#}
+                    <li><a href="{{ path('index') }}#contact">{{ 'menu.contact_us'|trans }}</a></li>
+                </ul>
+            </nav>
+
+            <nav class="nav social-nav pull-right d-none d-lg-inline">
+                <a href="#"></a>
+                <a href="https://facebook.com/hiberbee/" target="_blank">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/27153552/" target="_blank">
+                    <i class="fa fa-linkedin"></i>
+                </a>
+                <a href="mailto:contact@hiberbee.com"><i class="fa fa-envelope"></i></a>
+            </nav>
         </div>
-        <div class="dropdown">
-            <button class="btn btn-sm btn-warning dropdown-toggle" type="button" id="dropdownMenuButton"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{ 'role.select'|trans }}
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item"
-                   href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_role': 'it'})) }}">{{ 'role.developer'|trans }}</a>
-                <a class="dropdown-item"
-                   href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_role': 'user'})) }}">{{ 'role.user'|trans }}</a>
-            </div>
-        </div>
-        {% if not app.user %}
-            {% include 'oauth.html.twig' %}
-        {% else %}
-            <a href="{{ path('logout') }}">Logout</a>
-        {% endif %}
+
     </div>
-</nav>
+</header>

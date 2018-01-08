@@ -26,6 +26,46 @@
                 <source>slider.study.header</source>
                 <target>Тренинги, курсы, IT образование</target>
             </trans-unit>
+            <trans-unit id="menu.team">
+                <source>menu.team</source>
+                <target>Команда</target>
+            </trans-unit>
+            <trans-unit id="menu.contact_us">
+                <source>menu.contact_us</source>
+                <target>Контакт</target>
+            </trans-unit>
+            <trans-unit id="menu.about_us">
+                <source>menu.about_us</source>
+                <target>О компании</target>
+            </trans-unit>
+            <trans-unit id="menu.service_catalog">
+                <source>menu.service_catalog</source>
+                <target>Сервис-каталог</target>
+            </trans-unit>
+            <trans-unit id="menu.work_models">
+                <source>menu.work_models</source>
+                <target>Модель работы</target>
+            </trans-unit>
+            <trans-unit id="menu.our_mission">
+                <source>menu.our_mission</source>
+                <target>Наша миссия</target>
+            </trans-unit>
+            <trans-unit id="menu.our_projects">
+                <source>menu.our_projects</source>
+                <target>Наши проекты</target>
+            </trans-unit>
+            <trans-unit id="all_rights_reserved">
+                <source>all_rights_reserved</source>
+                <target>Все права защищены</target>
+            </trans-unit>
+            <trans-unit id="menu.home">
+                <source>menu.home</source>
+                <target>Главная</target>
+            </trans-unit>
+            <trans-unit id="phone">
+                <source>phone</source>
+                <target>Телефон</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

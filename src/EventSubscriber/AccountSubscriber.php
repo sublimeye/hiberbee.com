@@ -10,7 +10,6 @@
 
 namespace App\EventSubscriber;
 
-
 use App\Entity\Account;
 use App\Events;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;

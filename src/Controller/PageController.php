@@ -21,7 +21,7 @@ use Symfony\{
 class PageController extends Controller
 {
     /**
-     * @Route("/{slug}", name="page")
+     * @Route("/{slug}", name="page_index")
      * @param $_locale
      * @param $_role
      * @param $slug
@@ -34,7 +34,7 @@ class PageController extends Controller
         );
 
         return $this->render(
-            'default/page.html.twig',
+            'page/index.html.twig',
             [
                 'page' => $page,
             ]
