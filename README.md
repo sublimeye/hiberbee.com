@@ -9,3 +9,8 @@ Build status: [![Build Status](https://travis-ci.org/Hiberbee/hiberbee.com.svg?b
 # Tests
 
     docker exec -d backend vendor/bin/behat
+    
+# Deployment
+
+    docker build -t hiberbee/hiberbee.com:{major:minor:fix} .
+    docker push hiberbee/hiberbee.com

@@ -20,7 +20,7 @@ use Ramsey\Uuid\Uuid;
 /**
  * @Entity()
  */
-final class Category
+class Category
 {
     /**
      * @var Uuid

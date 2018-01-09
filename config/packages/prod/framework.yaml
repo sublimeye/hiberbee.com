@@ -1,3 +1,4 @@
-#framework:
-#    cache:
-#        system: cache.adapter.apcu
+framework:
+    cache:
+        system: cache.adapter.apcu
+        app: cache.adapter.apcu

@@ -19,7 +19,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * @Entity
  */
-final class Account implements UserInterface, \Serializable
+class Account implements UserInterface, \Serializable
 {
 
     /**

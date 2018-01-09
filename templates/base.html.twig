@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="{{ app.request.locale }}">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111095351-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'UA-111095351-1');
+    </script>
     <meta charset="utf-8">
     <title>Hiber Bee</title>
     <meta name="description" content="IT Services & Consulting">
@@ -9,13 +20,6 @@
     {% block stylesheets %}
         <link href="{{ asset('build/css/app.css') }}" rel="stylesheet"/>
     {% endblock %}
-    {% if not app.user %}
-        {#<script type="text/javascript" src="//platform.linkedin.com/in.js">#}
-        {#api_key: {{ linkedin_app_id }}#}
-        {#onLoad: syncLinkedinData#}
-        {#authorize: true#}
-        {#</script> #}
-    {% endif %}
 </head>
 <body>
 {% block slider %}
@@ -30,14 +34,13 @@
 
 <a class="scrolltop" href="{{ path('index') }}"><span class="fa fa-angle-up"></span></a>
 
-<!-- WhatsHelp.io widget -->
 <script type="text/javascript">
     (function () {
         var options = {
-            facebook: "873435416164733", // Facebook page ID
-            whatsapp: "+380671204517", // WhatsApp number
-            viber: "+380671204517", // Viber number
-            call: "+380671204517", // Call phone number
+            facebook: "873435416164733",
+            whatsapp: "+380671204517",
+            viber: "+380671204517",
+            call: "+380671204517",
             company_logo_url: "//storage.whatshelp.io/widget/96/9684/968402043631d063ee09be4815e4ef0c/25446352_873435619498046_4928202569127181443_n.png", // URL of company logo (png, jpg, gif)
             greeting_message: "Hello, how may we help you? Just send us a message now to get assistance.", // Text of greeting message
             call_to_action: "", // Call to action
