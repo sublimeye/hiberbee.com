@@ -45,6 +45,12 @@ final class Account implements UserInterface, \Serializable
     private $linkedinId;
 
     /**
+     * @var string
+     * @Column()
+     */
+    private $firstName;
+
+    /**
      * @Column(type="string", length=60, unique=true)
      */
     private $email;

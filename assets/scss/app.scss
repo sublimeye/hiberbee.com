@@ -65,10 +65,10 @@ a:hover {
 .scrolltop {
   display: none;
   position: fixed;
-  bottom: 15px;
-  right: 15px;
-  width: 42px;
-  height: 42px;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background: $yellow;
   color: #fff;
@@ -133,7 +133,7 @@ a:hover {
 }
 
 #header .social-nav a:hover {
-  color: rgba(255, 255, 255, 0.75);
+  color: $yellow;
 }
 
 
@@ -219,7 +219,7 @@ a:hover {
 }
 
 .nav-menu a:hover, .nav-menu li:hover > a, .nav-menu .menu-active > a {
-  color: rgba(255, 255, 255, 0.75);
+  color: $yellow;
 }
 
 .nav-menu ul {
@@ -577,7 +577,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .team .card:hover .card-title-wrap {
-  background-color: #fbbe0f;
+  background-color: $yellow;
 }
 
 .team .card:hover .card-title-wrap .card-title, .team .card:hover .card-title-wrap .card-text {
@@ -673,7 +673,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .site-footer .bottom .list-inline a:hover {
-  color: #fbbe0f;
+  color: $yellow;
 }
 
 .site-footer .credits {

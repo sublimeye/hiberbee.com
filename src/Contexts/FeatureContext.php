@@ -20,5 +20,21 @@ use Behat\MinkExtension\Context\MinkContext;
  */
 class FeatureContext extends MinkContext
 {
+    /**
+     * @BeforeSuite
+     */
+    public static function beforeSuite()
+    {
+        // TODO: Crappy solution, refactor this
+        exec('php bin/console server:start 127.0.0.1:8000 > /dev/null 2>&1 &');
+        sleep(1);
+    }
 
+    /**
+     * @AfterSuite
+     */
+    public static function afterSuite()
+    {
+        exec('php bin/console server:stop');
+    }
 }

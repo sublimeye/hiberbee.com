@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  backend:
+    image: hiberbee/docker.symfony
+    working_dir: /var/www/hiberbee.com
+    volumes:
+      - .:/var/www/hiberbee.com:rw
+      - backend_socket:/run/php:rw
+
+  web:
+    depends_on:
+      - backend
+    volumes:
+      - .:/var/www/hiberbee.com:rw
+      - backend_socket:/run/php:rw

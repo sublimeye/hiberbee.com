@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.0.5] - 2018-01-09
+### Refactoring
+- Now CI process deploy application completely and run tests
+- Minor fixes with docker compose files
+
+## [0.0.4] - 2018-01-09
+### Refactoring
+- Docker-compose is now available for production & local environments
+
 ## [0.0.3] - 2018-01-08
 ### Added
 - New design available now for homepage
@@ -14,6 +23,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Refactoring
 - Docker is now building properly for production environments
+- Images were refactored 
 
 ## [0.0.2] - 2018-01-05
 ### Added

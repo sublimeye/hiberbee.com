@@ -1,5 +1,5 @@
 node_modules/
-vendor/
 public/build
-.git
+vendor/
 var/
+.git

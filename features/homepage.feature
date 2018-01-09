@@ -6,4 +6,4 @@ Feature:
   Scenario: It receives a response from homepage
     Given I am on "/"
     When the response status code should be 200
-    Then I should see text matching "Bootstrap starter template"
+    Then I should see text matching "Hiberbee"
