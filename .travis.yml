@@ -7,7 +7,6 @@ services:
 before_install:
 - sudo /etc/init.d/mysql stop
 - docker-compose up -d
-- docker exec -it backend vendor/bin/behat
 
 script:
 - sonar-scanner
