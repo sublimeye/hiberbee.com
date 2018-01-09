@@ -1,29 +1,21 @@
 {% extends 'base.html.twig' %}
 {% block slider %}
-    <div style="position:absolute;z-index:2;width: 100%;background: rgba(0,0,0,0.75);height: 100vh">
-        {#<div style="margin: 0 auto;width: 200px;position: relative;top: 30%">#}
-        {#<a class="hero-brand" href="{{ path('index') }}" title="Home">#}
-        {#<img src="{{ asset('img/logo.png') }}" width="200px">#}
-        {#</a>#}
-        {#</div>#}
-        <div style="position: relative; top: 30%; margin: auto; width: 100%">
-            <h1 style="text-align: center;color: #fff">
-                Hiberbee
-            </h1>
-            <p style="text-align: center;color: #fff">
-                Ваш проводник в мир информационных технологий
-            </p>
-            <div style="width:100%">
-                <a style="margin: 0 auto;display: block;width: 220px" class="btn btn-full"
-                   href="#about">Далее</a>
+
+    <section class="hero">
+        <div class="container text-center">
+            <div class="col-md-12">
+                <h1>
+                    Hiberbee
+                </h1>
+
+                <p class="tagline">
+                    Ваш проводник в мир информационных технологий
+                </p>
+                <a class="btn btn-full" href="#about">Далее</a>
             </div>
         </div>
-    </div>
-    <div class="honeycomb" style="z-index:1">
-        <div class="honeycomb_container">
-            <div class="hexagon"></div>
-        </div>
-    </div>
+    </section>
+
 {% endblock %}
 
 {% block content %}

@@ -4,32 +4,7 @@ import 'superfish/dist/js/superfish'
 import 'jquery-sticky/jquery.sticky'
 import 'jquery.easing/jquery.easing'
 
-// Honeycomb
-
-var HexHeight = $(".hexagon").outerHeight(true);
-var ContHeight = $(".honeycomb_container").outerHeight();
-var ContWidth = $(".honeycomb_container").outerWidth(true);
-var WinWidth = $(".honeycomb").outerWidth();
-
-var numBoxes = Math.ceil(ContHeight / HexHeight);
-var numBoxes2 = Math.ceil(WinWidth / ContWidth) - 2;
-
-for (var i = 0; i < numBoxes; i++) {
-    $($(".hexagon").get(0)).clone().appendTo(".honeycomb_container");
-}
-for (var i = 0; i < numBoxes2; i++) {
-    $($(".honeycomb_container").get(0)).clone().appendTo(".honeycomb");
-}
-var randomColors = ["ful", "reg", "emp"];
-
 $(document).ready(function () {
-
-    $(".hexagon").each(function (index) {
-        var len = randomColors.length;
-        var randomNum = Math.floor(Math.random() * len);
-        $(this).addClass(randomColors[randomNum]);
-    });
-
 
     // Smooth scrolling
     $(function () {
