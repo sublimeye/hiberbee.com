@@ -1,16 +1,42 @@
 version: '3.4'
 
 services:
+  db:
+    image: percona
+    container_name: db
+    ports:
+      - 3306:3306
+    volumes:
+      - db-data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DATABASE_ROOT_PASSWORD}
+      MYSQL_DATABASE: hiberbee
+
   backend:
     image: hiberbee/docker.symfony
-    working_dir: /var/www/hiberbee.com
+    container_name: backend
+    depends_on:
+      - db
+    links:
+      - db
     volumes:
       - .:/var/www/hiberbee.com:rw
       - backend_socket:/run/php:rw
+    working_dir: /var/www/hiberbee.com
 
   web:
+    image: nginx
+    container_name: web
     depends_on:
       - backend
+    ports:
+       - 80:80
     volumes:
       - .:/var/www/hiberbee.com:rw
       - backend_socket:/run/php:rw
+    command: /bin/bash -c "cp /var/www/hiberbee.com/etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+
+volumes:
+  db-data:
+  backend_socket:

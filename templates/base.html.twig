@@ -34,19 +34,21 @@
 
 <a class="scrolltop" href="{{ path('index') }}"><span class="fa fa-angle-up"></span></a>
 
+<!-- WhatsHelp.io widget -->
 <script type="text/javascript">
     (function () {
         var options = {
             facebook: "873435416164733",
             whatsapp: "+380671204517",
             viber: "+380671204517",
+            email: "contact@hiberbee.com",
             call: "+380671204517",
             company_logo_url: "//storage.whatshelp.io/widget/96/9684/968402043631d063ee09be4815e4ef0c/25446352_873435619498046_4928202569127181443_n.png", // URL of company logo (png, jpg, gif)
             greeting_message: "Hello, how may we help you? Just send us a message now to get assistance.", // Text of greeting message
-            call_to_action: "", // Call to action
-            button_color: "#fbbe0f", // Color of button
-            position: "left", // Position may be 'right' or 'left'
-            order: "facebook,whatsapp,viber,call" // Order of buttons
+            call_to_action: "Есть вопрос?",
+            button_color: "#fbbe0f",
+            position: "left",
+            order: "facebook,whatsapp,viber,call,email"
         };
         var proto = document.location.protocol, host = "whatshelp.io", url = proto + "//static." + host;
         var s = document.createElement('script');
@@ -60,7 +62,6 @@
         x.parentNode.insertBefore(s, x);
     })();
 </script>
-<!-- /WhatsHelp.io widget -->
 
 {% block javascripts %}
     <script src="{{ asset('build/manifest.js') }}"></script>
