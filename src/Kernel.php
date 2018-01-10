@@ -65,9 +65,6 @@ class Kernel extends BaseKernel
     {
         $container->setParameter('container.dumper.inline_class_loader', true);
 
-        $container->setParameter('app_locales', implode('|', LocaleEnumType::getChoices()));
-        $container->setParameter('app_roles', implode('|', RoleEnumType::getChoices()));
-
         $confDir = $this->getProjectDir().'/config';
         $loader->load($confDir.'/packages/*'.self::CONFIG_EXTS, 'glob');
         if (is_dir($confDir.'/packages/'.$this->environment)) {

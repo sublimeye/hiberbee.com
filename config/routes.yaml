@@ -3,15 +3,15 @@
 # the template can be rendered without executing any logic in your own controller.
 # See https://symfony.com/doc/current/cookbook/templating/render_without_controller.html
 index:
-    path: /{_locale}/{_role}
+    path: /{_locale}
     controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
-    requirements:
-        _locale: '%app_locales%'
-        _role: '%app_roles%'
     defaults:
         template: index/index.html.twig
         _locale: '%locale%'
-        _role: '%role%'
 
-logout:
-    path: /logout
+page:
+    path: /{_locale}/{page}
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+    defaults:
+        template: index/page.html.twig
+        _locale: '%locale%'

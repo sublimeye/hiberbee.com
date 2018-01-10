@@ -6,11 +6,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 # [Unreleased]
 
+## [1.2.0] - 2018-01-10
+### Changed
+- Removed obsolete / redundant dependencies on database & sibling bundles
+- Updated cover photo
+
+# [Released]
+
 ## [1.1.0] - 2018-01-09
 ### Changed
 - JS honeycomb pattern was replaced by static image until better solution will be found
-
-# [Released]
 
 ## [1.0.0] - 2018-01-09
 ### Added 
