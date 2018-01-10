@@ -2,11 +2,6 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'ru'
-    role: 'user'
-    # This parameter defines the codes of the locales (languages) enabled in the application
-    app.email_sender: mailer@hiberbee.com
-    linkedin_app_id: '%env(LINKEDIN_APP_ID)%'
-    facebook_app_id: '%env(FACEBOOK_APP_ID)%'
 
 services:
     # default configuration for services in *this* file
@@ -25,6 +20,4 @@ services:
         resource: '../src/*'
         # you can exclude directories or files
         # but if a service is unused, it's removed anyway
-        exclude: '../src/{Entity,Migrations,Tests}'
-    App\EventSubscriber\AccountSubscriber:
-        $sender: '%app.email_sender%'
+        exclude: '../src/{Contexts,Entity,Migrations,Tests}'

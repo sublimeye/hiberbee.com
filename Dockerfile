@@ -17,4 +17,4 @@ COPY ./ ./
 RUN composer dump-autoload --optimize && \
 	composer run-script post-install-cmd
 
-RUN yarn dev
+RUN yarn build

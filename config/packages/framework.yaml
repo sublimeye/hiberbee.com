@@ -14,7 +14,8 @@ framework:
     fragments: { enabled: true }
     php_errors:
         log: true
-    assets: ~
+    assets:
+        json_manifest_path: '%kernel.root_dir%/../public/build/manifest.json'
     cache:
         prefix_seed: hiberbee
     ide: ~
