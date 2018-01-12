@@ -4,13 +4,15 @@ Build status: [![Build Status](https://travis-ci.org/Hiberbee/hiberbee.com.svg?b
 
 # Installation
 
-    docker-compose -f docker-compose.yml -f docker-compose.local.yml up -d
+    docker-compose -f docker-compose.local.yml up -d
 
 # Tests
 
-    docker exec -d backend vendor/bin/behat
+    docker exec -d hiberbeecom_app_1 vendor/bin/behat
     
 # Deployment
 
-    docker build -t hiberbee/hiberbee.com:{major:minor:fix} .
-    docker push hiberbee/hiberbee.com
+As hiberbee/hiberbee.com image is building each time Travis CI triggers, you can simply run these commands in production env:
+
+    docker-compose pull
+    docker-compose up -d 

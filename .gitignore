@@ -1,6 +1,5 @@
 /.idea
 *.iml
-.env
 /var/*
 !/var/cache
 /var/cache/*
@@ -14,8 +13,7 @@
 yarn-error.log
 
 ###> symfony/framework-bundle ###
-.env
-/public/bundles/x
+/public/bundles/
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
