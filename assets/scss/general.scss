@@ -11,8 +11,9 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
+  font-family: 'Open Sans Condensed', sans-serif;
 }
 
 h4, h5, h6 {
@@ -25,7 +26,12 @@ section h2 {
 
 p {
   line-height: 1.55;
-  color: $grey;
+  color: #999;
+  font-weight: 400;
+}
+
+ul li {
+  font-size: 14px;
   font-weight: 400;
 }
 
@@ -50,4 +56,37 @@ a {
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
+}
+
+section {
+  padding: 85px 0;
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(59, 57, 61, 0.1);
+}
+
+ul.bullet-circle {
+  list-style-type: none;
+  margin-left: 0;
+  text-align: justify;
+  padding: 10px 0;
+  color: #999;
+  li {
+    line-height: 21px;
+    padding: 5px 0px;
+  }
+  li:before {
+    font-size: 12px;
+    content: "\f00c";
+    font-family: FontAwesome;
+    background-color: $yellow;
+    color: #fff;
+    padding: 6px;
+    margin-right: 10px;
+    border-radius: 50%;
+  }
 }

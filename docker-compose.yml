@@ -7,7 +7,7 @@ services:
     volumes:
       - document_root:/var/www/hiberbee.com/public
       - nginx_configuration:/var/www/hiberbee.com/etc/nginx
-      - backend_socket:/run/php:rw
+      - backend_socket:/run/php
 
   web:
     image: nginx
@@ -19,7 +19,7 @@ services:
     volumes:
       - document_root:/var/www/hiberbee.com/public:ro
       - nginx_configuration:/var/www/hiberbee.com/etc/nginx:ro
-      - backend_socket:/run/php:rw
+      - backend_socket:/run/php:ro
     command: /bin/bash -c "cp /var/www/hiberbee.com/etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
 
 volumes:
