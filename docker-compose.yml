@@ -8,6 +8,10 @@ services:
       - document_root:/var/www/hiberbee.com/public
       - nginx_configuration:/var/www/hiberbee.com/etc/nginx
       - backend_socket:/run/php
+    environment:
+      APP_ENV: ${APP_ENV}
+      APP_DEBUG: ${APP_DEBUG}
+      APP_SECRET: ${APP_SECRET}
 
   web:
     image: nginx

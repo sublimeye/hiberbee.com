@@ -8,9 +8,9 @@ services:
       - backend_socket:/run/php:rw
     working_dir: /var/www/hiberbee.com
     environment:
-      - APP_ENV=dev
-      - APP_DEBUG=1
-      - APP_SECRET=secret
+      APP_ENV: dev
+      APP_DEBUG: 1
+      APP_SECRET: 'secret'
 
   web:
     image: nginx
