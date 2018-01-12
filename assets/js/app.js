@@ -1,12 +1,11 @@
 import 'bootstrap/dist/js/bootstrap.bundle';
-import 'jquery.cookie/jquery.cookie'
 import 'superfish/dist/js/superfish'
 import 'jquery-sticky/jquery.sticky'
 import 'jquery.easing/jquery.easing'
+import 'bootstrap-toggle/js/bootstrap-toggle'
 
 $(document).ready(function () {
 
-    // Smooth scrolling
     $(function () {
         $('a[href*="#"]:not([href="#"])').click(function () {
             if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
@@ -34,15 +33,13 @@ $(document).ready(function () {
         });
     });
 
-    // Initiate superfish on nav menu
     $('.nav-menu').superfish({
         animation: {opacity: 'show'},
         speed: 400
     });
 
-    // Mobile Navigation
-    if ($('#nav-menu-honeycomb_container').length) {
-        var $mobile_nav = $('#nav-menu-honeycomb_container').clone().prop({id: 'mobile-nav'});
+    if ($('#nav-menu-container').length) {
+        var $mobile_nav = $('#nav-menu-container').clone().prop({id: 'mobile-nav'});
         $mobile_nav.find('> ul').attr({'class': '', 'id': ''});
         $('body').append($mobile_nav);
         $('body').prepend('<button type="button" id="mobile-nav-toggle"><i class="fa fa-bars"></i></button>');
@@ -62,8 +59,8 @@ $(document).ready(function () {
         });
 
         $(document).click(function (e) {
-            var honeycomb_container = $("#mobile-nav, #mobile-nav-toggle");
-            if (!honeycomb_container.is(e.target) && honeycomb_container.has(e.target).length === 0) {
+            var container = $("#mobile-nav, #mobile-nav-toggle");
+            if (!container.is(e.target) && container.has(e.target).length === 0) {
                 if ($('body').hasClass('mobile-nav-active')) {
                     $('body').removeClass('mobile-nav-active');
                     $('#mobile-nav-toggle i').toggleClass('fa-times fa-bars');
@@ -75,14 +72,11 @@ $(document).ready(function () {
         $("#mobile-nav, #mobile-nav-toggle").hide();
     }
 
-    // Stick the header at top on scroll
     $("#header").sticky({topSpacing: 0, zIndex: '50'});
 
-    // Tooltip & popovers
     $('[data-toggle="tooltip"]').tooltip();
     $('[data-toggle="popover"]').popover();
 
-    //Scroll Top link
     $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
             $('.scrolltop').fadeIn();

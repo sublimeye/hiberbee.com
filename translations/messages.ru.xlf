@@ -42,9 +42,9 @@
                 <source>menu.service_catalog</source>
                 <target>Сервис-каталог</target>
             </trans-unit>
-            <trans-unit id="menu.work_models">
-                <source>menu.work_models</source>
-                <target>Модель работы</target>
+            <trans-unit id="menu.process">
+                <source>menu.process</source>
+                <target>Процесс</target>
             </trans-unit>
             <trans-unit id="menu.our_mission">
                 <source>menu.our_mission</source>
@@ -65,6 +65,10 @@
             <trans-unit id="phone">
                 <source>phone</source>
                 <target>Телефон</target>
+            </trans-unit>
+            <trans-unit id="menu.technologies">
+                <source>menu.technologies</source>
+                <target>Технологии</target>
             </trans-unit>
         </body>
     </file>

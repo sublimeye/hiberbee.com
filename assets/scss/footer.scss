@@ -1,0 +1,68 @@
+/*!
+ * This file is part of the Hiberbee web application.
+ *
+ * (c) Vladyslav Volkov <vlad@hiberbee.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+.site-footer {
+  background-color: #3b393d;
+  padding: 0;
+}
+
+.site-footer p {
+  color: #fff;
+  opacity: .75;
+  line-height: 2.0925;
+}
+
+.site-footer .social-nav a {
+  color: #fff;
+  opacity: .25;
+}
+
+.site-footer .social-nav a:hover {
+  opacity: 1;
+}
+
+.site-footer .bottom {
+  padding: 20px 0;
+}
+
+.site-footer .bottom .list-inline, .site-footer .bottom p {
+  margin: 0;
+}
+
+.site-footer .bottom .list-inline {
+  position: relative;
+  top: 5px;
+}
+
+.site-footer .bottom .list-inline a {
+  color: #fff;
+  margin-right: 15px;
+}
+
+.site-footer .bottom .list-inline a:hover {
+  color: $yellow;
+}
+
+.site-footer .credits {
+  color: #ddd;
+}
+
+.site-footer .credits a {
+  color: #fbbe0f;
+}
+
+.site-footer .social-nav a {
+  font-size: 24px;
+  margin-left: 15px;
+  color: #fff;
+}
+
+.site-footer .social-nav a:hover {
+  color: $yellow;
+}

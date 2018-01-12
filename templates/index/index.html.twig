@@ -11,7 +11,7 @@
                 <p class="tagline">
                     Ваш проводник в мир информационных технологий
                 </p>
-                <a class="btn btn-full" href="#service_catalog">Далее</a>
+                <a class="btn btn-full" href="#about">Далее</a>
             </div>
         </div>
     </section>
@@ -19,20 +19,20 @@
 {% endblock %}
 
 {% block content %}
-    {#{% include 'index/about.html.twig' %}#}
+    {% include 'index/about.html.twig' %}
 
-    {#{% include 'index/mission.html.twig' %}#}
+    <hr>
 
-    {#{% include 'index/benefits.html.twig' %}#}
+    {#{% include 'index/values.html.twig' %}#}
 
-    {#{% include 'index/work-models.html.twig' %}#}
+    {% include 'index/process.html.twig' %}
+
+    <hr>
 
     {% include 'index/services.html.twig' %}
 
-    {#{% include 'index/our_projects.html.twig' %}#}
+    {% include 'index/our_projects.html.twig' %}
 
-    {#{% include 'index/team.html.twig' %}#}
-
-    {#{% include 'index/contact.html.twig' %}#}
+    {% include 'index/technologies.html.twig' %}
 
 {% endblock %}
