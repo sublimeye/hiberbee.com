@@ -1,5 +1,8 @@
 FROM hiberbee/docker.symfony
 
+ENV APP_ENV prod
+ENV APP_DEBUG 0
+
 MAINTAINER vlad@hiberbee.com
 
 WORKDIR /var/www/hiberbee.com
