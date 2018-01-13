@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 # [Unreleased]
 ## [1.4.0] - 2018-01-12
+### Added
+- Translation to EN is now available
 ### Refactoring
 - Removed .env file - now all env var are forced by docker-compose environment
 
