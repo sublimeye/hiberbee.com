@@ -6,25 +6,57 @@
                 <source>page.not_found</source>
                 <target>Page not found</target>
             </trans-unit>
-            <trans-unit id="role.developer">
-                <source>role.developer</source>
-                <target>Developer</target>
-            </trans-unit>
-            <trans-unit id="role.user">
-                <source>role.user</source>
-                <target>User</target>
-            </trans-unit>
             <trans-unit id="language">
                 <source>language</source>
                 <target>Language</target>
             </trans-unit>
-            <trans-unit id="role.select">
-                <source>role.select</source>
-                <target>Select your role</target>
+            <trans-unit id="menu.team">
+                <source>menu.team</source>
+                <target>Team</target>
             </trans-unit>
-            <trans-unit id="slider.study.header">
-                <source>slider.study.header</source>
-                <target>Trainings, courses, IT education</target>
+            <trans-unit id="menu.about_us">
+                <source>menu.about_us</source>
+                <target>About us</target>
+            </trans-unit>
+            <trans-unit id="menu.service_catalog">
+                <source>menu.service_catalog</source>
+                <target>Service catalog</target>
+            </trans-unit>
+            <trans-unit id="menu.process">
+                <source>menu.process</source>
+                <target>Process</target>
+            </trans-unit>
+            <trans-unit id="menu.our_mission">
+                <source>menu.our_mission</source>
+                <target>Mission</target>
+            </trans-unit>
+            <trans-unit id="menu.our_projects">
+                <source>menu.our_projects</source>
+                <target>Our projects</target>
+            </trans-unit>
+            <trans-unit id="menu.home">
+                <source>menu.home</source>
+                <target>Home</target>
+            </trans-unit>
+            <trans-unit id="consulting">
+                <source>consulting</source>
+                <target>Consulting</target>
+            </trans-unit>
+            <trans-unit id="menu.technologies">
+                <source>menu.technologies</source>
+                <target>Technologies</target>
+            </trans-unit>
+            <trans-unit id="development">
+                <source>development</source>
+                <target>Development</target>
+            </trans-unit>
+            <trans-unit id="study">
+                <source>study</source>
+                <target>Study</target>
+            </trans-unit>
+            <trans-unit id="support_migration">
+                <source>support_migration</source>
+                <target>Support and migration</target>
             </trans-unit>
         </body>
     </file>

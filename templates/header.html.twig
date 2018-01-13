@@ -12,6 +12,14 @@
                 <li><a href="{{ path('index') }}#our_projects">{{ 'menu.our_projects'|trans }}</a></li>
                 <li><a href="{{ path('index') }}#technologies">{{ 'menu.technologies'|trans }}</a></li>
             </ul>
+            <ul class="nav-menu pull-right">
+                <li>
+                    <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'ru'})) }}#about">RU</a>
+                </li>
+                <li>
+                    <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}#about">EN</a>
+                </li>
+            </ul>
         </nav>
     </div>
 </header>
