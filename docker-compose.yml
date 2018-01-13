@@ -18,13 +18,12 @@ services:
     container_name: web
     depends_on:
       - app
-    ports:
-       - 80:80
     volumes:
       - document_root:/var/www/hiberbee.com/public:ro
       - nginx_configuration:/var/www/hiberbee.com/etc/nginx:ro
       - backend_socket:/run/php:ro
-    command: /bin/bash -c "cp /var/www/hiberbee.com/etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+      - ./ssl:/root/ssl
+    command: /bin/bash -c "cp /var/www/hiberbee.com/etc/nginx/conf.d/production.conf /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
 
 volumes:
   document_root:
