@@ -18,6 +18,9 @@ services:
     container_name: web
     depends_on:
       - app
+    ports:
+      - 80:80
+      - 443:443
     volumes:
       - document_root:/var/www/hiberbee.com/public:ro
       - nginx_configuration:/var/www/hiberbee.com/etc/nginx:ro
