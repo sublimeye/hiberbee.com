@@ -6,11 +6,14 @@ services:
     volumes:
       - .:/var/www/hiberbee.com:rw
       - backend_socket:/run/php:rw
+    depends_on:
+      - db
     working_dir: /var/www/hiberbee.com
     environment:
       APP_ENV: dev
       APP_DEBUG: 1
       APP_SECRET: 'secret'
+      DATABASE_URL: 'postgres://hiberbee:password@db:5432/hiberbee'
 
   web:
     image: nginx
@@ -23,5 +26,18 @@ services:
       - backend_socket:/run/php:rw
     command: /bin/bash -c "cp /var/www/hiberbee.com/etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
 
+  db:
+    image: postgres
+    ports:
+      - 5432:5432
+    restart: always
+    environment:
+      POSTGRES_USER: hiberbee
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: hiberbee
+    volumes:
+      - db_data:/var/lib/postgresql
+
 volumes:
   backend_socket:
+  db_data:
