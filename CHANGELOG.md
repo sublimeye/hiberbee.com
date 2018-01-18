@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.5.0] - 2018-01-18
 ### Added
 - Presentation framework reveal.js with basic template
+- Added database dependency
+- API & html are now separated. Twig dependency removed
 
 ## [1.4.2] - 2018-01-18
 ### Added

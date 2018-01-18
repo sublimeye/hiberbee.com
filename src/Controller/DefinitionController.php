@@ -11,6 +11,7 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -21,9 +22,10 @@ class DefinitionController extends Controller
     /**
      * @Route("/{slug}")
      * @param string $slug
+     * @return JsonResponse
      */
     public function getAction(string $slug)
     {
-        die($slug);
+        return new JsonResponse($slug);
     }
 }
