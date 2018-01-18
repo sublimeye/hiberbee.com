@@ -5,7 +5,7 @@ services:
   - docker
 
 before_install:
-- sudo /etc/init.d/mysql stop
+- sudo service postgresql stop
 - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
 - docker build -t hiberbee/hiberbee.com .
 - docker push hiberbee/hiberbee.com
