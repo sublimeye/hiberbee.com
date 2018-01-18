@@ -8,7 +8,11 @@ index:
     defaults:
         template: index/index.html.twig
         _locale: '%locale%'
-
+presentation:
+    path: /presentation/{presentation}
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+    defaults:
+        template: presentation/index.html.twig
 page:
     path: /{_locale}/{page}
     controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction

@@ -5,6 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 # [Unreleased]
+## [1.5.0] - 2018-01-18
+### Added
+- Presentation framework reveal.js with basic template
+
+## [1.4.2] - 2018-01-18
+### Added
+- Facebook tracking pixel
 ## [1.4.1] - 2018-01-13
 ### Added 
 - SSL configuration as well as certificates for nginx config

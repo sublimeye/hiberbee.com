@@ -9,6 +9,7 @@
     "jquery.cookie": "^1.4.1",
     "jquery.easing": "^1.4.1",
     "node-sass": "^4.7.2",
+    "reveal.js": "^3.6.0",
     "sass-loader": "^6.0.5",
     "superfish": "^1.7.9"
   },

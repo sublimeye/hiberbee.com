@@ -11,7 +11,9 @@ Encore
     .createSharedEntry('js/common', ['jquery'])
     .addEntry('js/app', './assets/js/app.js')
     .addEntry('js/admin', './assets/js/admin.js')
+    .addEntry('js/presentation', './assets/js/presentation.js')
     .addStyleEntry('css/app', ['./assets/scss/app.scss'])
+    .addStyleEntry('css/presentation', ['./assets/scss/presentation.scss'])
 ;
 
 module.exports = Encore.getWebpackConfig();
