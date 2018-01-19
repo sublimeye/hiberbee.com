@@ -13,7 +13,7 @@ services:
       APP_ENV: dev
       APP_DEBUG: 1
       APP_SECRET: 'secret'
-      DATABASE_URL: 'postgres://hiberbee:password@db:5432/hiberbee'
+      DATABASE_URL: 'postgres://hiberbee:password@db:5432/`hiberbee'
 
   web:
     image: hiberbee/docker.nginx
@@ -22,10 +22,13 @@ services:
     ports:
        - 80:80
        - 443:443
+       - 1234:1234
     volumes:
-      - .:/var/www/hiberbee.com:rw
+      - .:/var/www/localhost:rw
       - backend_socket:/run/php:rw
-    command: /bin/bash -c "cp -a /var/www/hiberbee.com/etc/nginx/hosts/localhost.conf /etc/nginx/hosts/ && nginx -g 'daemon off;'"
+    command: /bin/bash -c "envsubst '$${SERVER_NAME}' < /etc/nginx/hosts/symfony.template > /etc/nginx/hosts/default.conf && nginx -g 'daemon off;'"
+    environment:
+      SERVER_NAME: localhost
 
   db:
     image: postgres

@@ -29,7 +29,9 @@ services:
       - nginx_configuration:/var/www/hiberbee.com/etc/nginx:ro
       - backend_socket:/run/php:ro
       - ./ssl:/root/ssl
-    command: /bin/bash -c "cp /var/www/hiberbee.com/etc/nginx/hosts/production.conf /etc/nginx/hosts/production.conf && nginx -g 'daemon off;'"
+    command: /bin/bash -c "envsubst '$SERVER_NAME' < /etc/nginx/hosts/symfony.template > /etc/nginx/hosts/default.conf && nginx -g 'daemon off;'"
+    environment:
+      SERVER_NAME: production
 
   db:
     image: postgres

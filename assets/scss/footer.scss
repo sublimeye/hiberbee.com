@@ -7,62 +7,62 @@
  * file that was distributed with this source code.
  */
 
-.site-footer {
+#footer {
   background-color: #3b393d;
   padding: 0;
 }
 
-.site-footer p {
+#footer p {
   color: #fff;
   opacity: .75;
   line-height: 2.0925;
 }
 
-.site-footer .social-nav a {
+#footer .social-nav a {
   color: #fff;
   opacity: .25;
 }
 
-.site-footer .social-nav a:hover {
+#footer .social-nav a:hover {
   opacity: 1;
 }
 
-.site-footer .bottom {
+#footer .bottom {
   padding: 20px 0;
 }
 
-.site-footer .bottom .list-inline, .site-footer .bottom p {
+#footer .bottom .list-inline, #footer .bottom p {
   margin: 0;
 }
 
-.site-footer .bottom .list-inline {
+#footer .bottom .list-inline {
   position: relative;
   top: 5px;
 }
 
-.site-footer .bottom .list-inline a {
+#footer .bottom .list-inline a {
   color: #fff;
   margin-right: 15px;
 }
 
-.site-footer .bottom .list-inline a:hover {
+#footer .bottom .list-inline a:hover {
   color: $yellow;
 }
 
-.site-footer .credits {
+#footer .credits {
   color: #ddd;
 }
 
-.site-footer .credits a {
+#footer .credits a {
   color: #fbbe0f;
 }
 
-.site-footer .social-nav a {
+#footer .social-nav a {
   font-size: 24px;
   margin-left: 15px;
   color: #fff;
 }
 
-.site-footer .social-nav a:hover {
+#footer .social-nav a:hover {
   color: $yellow;
 }

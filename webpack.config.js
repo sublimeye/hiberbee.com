@@ -4,7 +4,6 @@ Encore
     .setOutputPath('public/build/')
     .setPublicPath('/build')
     .cleanupOutputBeforeBuild()
-    .autoProvidejQuery()
     .enableReactPreset()
     .enableSassLoader()
     .enableSourceMaps(!Encore.isProduction())
