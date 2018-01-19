@@ -28,8 +28,8 @@ services:
       - document_root:/var/www/hiberbee.com/public:ro
       - nginx_configuration:/var/www/hiberbee.com/etc/nginx:ro
       - backend_socket:/run/php:ro
-      - ./ssl:/root/ssl
-    command: /bin/bash -c "envsubst '$SERVER_NAME' < /etc/nginx/hosts/symfony.template > /etc/nginx/hosts/default.conf && nginx -g 'daemon off;'"
+      - ./ssl:/etc/ssl
+    command: /bin/bash -c "envsubst '$$SERVER_NAME' < /etc/nginx/hosts/symfony.template > /etc/nginx/hosts/default.conf && nginx -g 'daemon off;'"
     environment:
       SERVER_NAME: production
 
