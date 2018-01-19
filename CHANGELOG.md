@@ -4,12 +4,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-# [Unreleased]
+# [Released]
+## [1.6.0] - 2018-01-19
+### Added
+- React js now render index.html application
+
+## [1.5.0] - 2018-01-18
+### Added
+- Presentation framework reveal.js with basic template
+- Added database dependency
+- API & html are now separated. Twig dependency removed
+
+## [1.4.2] - 2018-01-18
+### Added
+- Facebook tracking pixel
+
 ## [1.4.1] - 2018-01-13
 ### Added 
 - SSL configuration as well as certificates for nginx config
 
-# [Released]
 ## [1.4.0] - 2018-01-12
 ### Added
 - Translation to EN is now available

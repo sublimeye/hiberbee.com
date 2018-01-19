@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1965963293616292');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+             src="https://www.facebook.com/tr?id=1965963293616292&ev=PageView&noscript=1"/>
+    </noscript>
+    <title>Hiber Bee</title>
+    <meta name="description" content="IT Services & Consulting">
+    <meta name="author" content="Hiberbee">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/build/css/app.css" rel="stylesheet"/>
+</head>
+<body>
+<header id="header"></header>
+<section class="about" id="about"></section><hr/>
+<section class="process" id="process"></section><hr/>
+<section class="service_catalog" id="service_catalog"></section>
+<section class="projects" id="projects"></section>
+<section class="technologies" id="technologies"></section>
+<footer id="footer"></footer>
+<script type="text/javascript" src="build/js/app.js"></script>
+</body>
+</html>

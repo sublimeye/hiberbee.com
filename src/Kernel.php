@@ -13,8 +13,6 @@
 
 namespace App;
 
-use App\DBAL\Types\LocaleEnumType;
-use App\DBAL\Types\RoleEnumType;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -24,8 +22,6 @@ use Symfony\Component\Routing\RouteCollectionBuilder;
 class Kernel extends BaseKernel
 {
     use MicroKernelTrait;
-
-    private const ROUTE_CONFIG_DIRECTORY_NAME = 'routes';
 
     const CONFIG_EXTS = '.{php,xml,yaml,yml}';
 
@@ -79,19 +75,6 @@ class Kernel extends BaseKernel
      */
     protected function configureRoutes(RouteCollectionBuilder $routes)
     {
-        $confDir = $this->getProjectDir().'/config';
-        if (is_dir($confDir.DIRECTORY_SEPARATOR.self::ROUTE_CONFIG_DIRECTORY_NAME.DIRECTORY_SEPARATOR)) {
-            $routes->import($confDir.'/routes/*'.self::CONFIG_EXTS, '/', 'glob');
-        }
-        if (is_dir(
-            $confDir.DIRECTORY_SEPARATOR.self::ROUTE_CONFIG_DIRECTORY_NAME.DIRECTORY_SEPARATOR.$this->environment
-        )) {
-            $routes->import(
-                $confDir.DIRECTORY_SEPARATOR.self::ROUTE_CONFIG_DIRECTORY_NAME.DIRECTORY_SEPARATOR.$this->environment.'/**/*'.self::CONFIG_EXTS,
-                '/',
-                'glob'
-            );
-        }
-        $routes->import($confDir.DIRECTORY_SEPARATOR.self::ROUTE_CONFIG_DIRECTORY_NAME.self::CONFIG_EXTS, '/', 'glob');
+        $routes->import($this->getProjectDir().'/config/api.yaml', '/api', 'glob');
     }
 }

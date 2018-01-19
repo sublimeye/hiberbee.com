@@ -8,8 +8,12 @@
  */
 
 #header {
-  background: #000;
+  background: rgba(0, 0, 0, 0.9);
   height: 70px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 50;
 }
 
 #header #logo {
@@ -46,4 +50,7 @@
     max-height: 30px;
     vertical-align: top;
   }
+}
+.about {
+  padding-top: 130px;
 }
