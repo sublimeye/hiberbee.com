@@ -17,7 +17,7 @@ services:
       DATABASE_URL: ${DATABASE_URL}
 
   web:
-    image: nginx
+    image: hiberbee/docker.nginx
     container_name: web
     depends_on:
       - app
@@ -29,7 +29,7 @@ services:
       - nginx_configuration:/var/www/hiberbee.com/etc/nginx:ro
       - backend_socket:/run/php:ro
       - ./ssl:/root/ssl
-    command: /bin/bash -c "cp /var/www/hiberbee.com/etc/nginx/conf.d/production.conf /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+    command: /bin/bash -c "cp /var/www/hiberbee.com/etc/nginx/hosts/production.conf /etc/nginx/hosts/production.conf && nginx -g 'daemon off;'"
 
   db:
     image: postgres
