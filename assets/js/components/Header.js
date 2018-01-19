@@ -5,7 +5,7 @@ class Header extends Component {
         return (
             <div className="container">
                 <div id="logo" className="pull-left">
-                    <h1><a href=""><img src="../../images/logo.png"/></a></h1>
+                    <h1><a href=""><img src={require("../../images/logo.png")}/></a></h1>
                 </div>
                 <nav id="nav-menu-container">
                     <ul className="nav-menu">

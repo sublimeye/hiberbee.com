@@ -14,7 +14,7 @@ class Projects extends Component {
 
                         <div className="col-lg-3 col-sm-6 col-xs-12">
                             <div className="card card-block">
-                                <img alt="" src="../../images/consulting.jpg"/>
+                                <img src={require("../../images/consulting.jpg")}/>
                                 <div className="project-over">
                                     <div>
                                         <h3 className="card-title">
@@ -29,7 +29,7 @@ class Projects extends Component {
 
                         <div className="col-lg-3 col-sm-6 col-xs-12">
                             <div className="card card-block">
-                                <img alt="" src="../../images/architecture.png"/>
+                                <img src={require("../../images/architecture.png")}/>
                                 <div className="project-over">
                                     <div>
                                         <h3 className="card-title">
@@ -43,7 +43,7 @@ class Projects extends Component {
                         </div>
                         <div className="col-lg-3 col-sm-6 col-xs-12">
                             <div className="card card-block">
-                                <img alt="" src="../../images/university.jpg"/>
+                                <img src={require("../../images/university.jpg")}/>
                                 <div className="project-over">
                                     <div>
                                         <h3 className="card-title">
@@ -57,7 +57,7 @@ class Projects extends Component {
                         </div>
                         <div className="col-lg-3 col-sm-6 col-xs-12">
                             <div className="card card-block">
-                                <img alt="" src="../../images/internet_shop.png"/>
+                                <img src={require("../../images/internet_shop.png")}/>
                                 <div className="project-over">
                                     <div>
                                         <h3 className="card-title">

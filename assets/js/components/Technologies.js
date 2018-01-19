@@ -10,22 +10,22 @@ class Technologies extends Component {
                     </h2>
                     <div className="row">
                         <div className="col-lg-2">
-                            <img src="../../images/technologies/symfony.png"/>
+                            <img src={require("../../images/technologies/symfony.png")}/>
                         </div>
                         <div className="col-lg-2">
-                            <img src="../../images/technologies/magento.png"/>
+                            <img src={require("../../images/technologies/magento.png")}/>
                         </div>
                         <div className="col-lg-2">
-                            <img src="../../images/technologies/shopify.png"/>
+                            <img src={require("../../images/technologies/shopify.png")}/>
                         </div>
                         <div className="col-lg-2">
-                            <img src="../../images/technologies/github.png"/>
+                            <img src={require("../../images/technologies/github.png")}/>
                         </div>
                         <div className="col-lg-2">
-                            <img src="../../images/technologies/digital-ocean.png"/>
+                            <img src={require("../../images/technologies/digital-ocean.png")}/>
                         </div>
                         <div className="col-lg-2">
-                            <img src="../../images/technologies/docker.png"/>
+                            <img src={require("../../images/technologies/docker.png")}/>
                         </div>
                     </div>
                 </div>
